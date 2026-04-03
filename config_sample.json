@@ -1,0 +1,14 @@
+{
+  "_설명": "이 파일을 복사하여 config.json 으로 저장한 뒤, 아래 값을 실제 정보로 바꾸세요.",
+
+  "smtp_server":   "smtp.gmail.com",
+  "smtp_port":     587,
+
+  "sender_email":    "발신자이메일@gmail.com",
+  "sender_password": "앱_비밀번호_16자리",
+
+  "recipient_emails": [
+    "수신자1@example.com",
+    "수신자2@example.com"
+  ]
+}

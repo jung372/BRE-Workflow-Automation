@@ -1,0 +1,50 @@
+{
+  "checked_at": "-",
+  "sites": [
+    {
+      "id": "notice",
+      "name": "전기위 공지사항",
+      "icon": "📢",
+      "color": "#3b82f6",
+      "url": "https://www.korec.go.kr/notice/selectNoticeList.do",
+      "error": null,
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
+    },
+    {
+      "id": "result",
+      "name": "위원회 개최결과",
+      "icon": "📋",
+      "color": "#10b981",
+      "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do",
+      "error": null,
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
+    },
+    {
+      "id": "nie_notice",
+      "name": "생태.자연도 공고",
+      "icon": "🍃",
+      "color": "#eab308",
+      "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
+      "error": null,
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
+    },
+    {
+      "id": "kepco_notice",
+      "name": "한전 설계포털 공지",
+      "icon": "⚡",
+      "color": "#f97316",
+      "url": "https://online.kepco.co.kr/EWM040D00",
+      "error": null,
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
+    }
+  ],
+  "is_updating": false
+}

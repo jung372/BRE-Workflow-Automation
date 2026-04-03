@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 로그
+*.log
+monitor.log
+
+# 민감 설정 (이메일 계정 등)
+config.json
+
+# 압축 파일
+*.zip
+
+# 로컬 전용 앱 (Flask 서버 / 배치 파일은 GitHub에 올려도 무방하나 선택적)
+# dashboard_app.py
+# run_dashboard.bat
+# run_korec_monitor.bat

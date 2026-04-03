@@ -1,0 +1,40 @@
+name: 모니터링 데이터 갱신
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # 매 1시간마다 실행 (UTC 기준, 한국시간 매 시 정각+9h)
+  workflow_dispatch:       # GitHub Actions 탭에서 수동 실행 가능
+
+permissions:
+  contents: write          # 결과 JSON을 repo에 커밋할 수 있도록 쓰기 권한 부여
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 🐍 Python 3.11 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: 🌐 Playwright Chromium 브라우저 설치
+        run: playwright install chromium --with-deps
+
+      - name: 🔍 스크래핑 실행
+        run: python scraper.py
+
+      - name: 💾 결과 커밋 & 푸시
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/status.json last_state.json
+          git diff --staged --quiet || git commit -m "chore: update monitoring data [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+          git push
