@@ -2,17 +2,25 @@
 주요 사이트 공지 모니터링 스크래퍼 - GitHub Actions 전용
 실행: python scraper.py
 출력: data/status.json  (GitHub Pages 대시보드에서 읽음)
+
+[새 게시글 판정 기준]
+  실행 시점 기준 7일 전 게시글 목록과 현재 목록을 비교.
+  현재 목록에는 있지만 7일 전 목록에는 없던 게시글 = 신규.
+  - 7일치 데이터 미만이면 가장 오래된 저장 목록 기준
+  - 첫 실행 시에는 오늘 목록만 저장하고 새 글 = 0
 """
 import json, os, logging
 from datetime import datetime, timezone, timedelta
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 
-BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
-STATE_FILE = os.path.join(BASE_DIR, "last_state.json")
-DATA_DIR   = os.path.join(BASE_DIR, "data")
-OUTPUT     = os.path.join(DATA_DIR, "status.json")
-KST        = timezone(timedelta(hours=9))
+BASE_DIR      = os.path.dirname(os.path.abspath(__file__))
+STATE_FILE    = os.path.join(BASE_DIR, "last_state.json")
+DATA_DIR      = os.path.join(BASE_DIR, "data")
+OUTPUT        = os.path.join(DATA_DIR, "status.json")
+KST           = timezone(timedelta(hours=9))
+BASELINE_DAYS = 7   # 비교 기준: 며칠 전 목록과 비교할지
+KEEP_DAYS     = 8   # 목록 보관 기간 (기준일 + 여유 1일)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
 log = logging.getLogger(__name__)
@@ -41,6 +49,12 @@ SITES = [
 ]
 
 
+# ── 게시글 고유 ID ──────────────────────────────────────────────
+def item_id(n):
+    return f"{n['num']}||{n['title']}"
+
+
+# ── 상태 파일 ────────────────────────────────────────────────────
 def load_state():
     if os.path.exists(STATE_FILE):
         try:
@@ -56,6 +70,59 @@ def save_state(state):
         json.dump(state, f, ensure_ascii=False, indent=2)
 
 
+# ── 날짜별 게시글 목록 관리 ──────────────────────────────────────
+def get_baseline_ids(site_state):
+    """
+    7일 전 날짜 기준의 게시글 ID 목록(set) 반환.
+      - 정확히 7일 전 날짜 데이터가 없으면 그 이전 중 가장 최근 날짜 사용
+      - 7일치 미만이면 가장 오래된 날짜의 목록 사용
+      - 저장된 목록이 아예 없으면 빈 set 반환 (첫 실행)
+    """
+    # 구버전 형식(list) → 빈 dict로 마이그레이션
+    if isinstance(site_state, list):
+        return set()
+
+    daily = site_state.get("daily_snapshots", {})
+    if not daily:
+        return set()   # 첫 실행: 새 글 없음으로 처리
+
+    today      = datetime.now(KST).date()
+    target_str = (today - timedelta(days=BASELINE_DAYS)).strftime("%Y-%m-%d")
+    sorted_dates = sorted(daily.keys())
+
+    # target_str 이하인 날짜 중 가장 최근 날짜 선택
+    baseline_date = None
+    for d in sorted_dates:
+        if d <= target_str:
+            baseline_date = d
+
+    # 7일치 데이터가 아직 없으면 보관 중인 가장 오래된 날짜 사용
+    if baseline_date is None:
+        baseline_date = sorted_dates[0]
+
+    log.info(f"  비교 기준 날짜: {baseline_date} (목표 7일 전: {target_str})")
+    return set(daily[baseline_date])
+
+
+def update_site_state(site_state, current_ids):
+    """오늘 날짜의 게시글 목록을 저장하고, KEEP_DAYS 초과 데이터는 삭제."""
+    if isinstance(site_state, list):
+        site_state = {}
+
+    today_str  = datetime.now(KST).strftime("%Y-%m-%d")
+    cutoff_str = (datetime.now(KST) - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
+
+    daily = site_state.get("daily_snapshots", {})
+    daily[today_str] = current_ids[:50]   # 오늘 목록 저장 (최대 50개)
+
+    # KEEP_DAYS 이전 데이터 삭제
+    site_state["daily_snapshots"] = {
+        k: v for k, v in daily.items() if k >= cutoff_str
+    }
+    return site_state
+
+
+# ── 스크래핑 ─────────────────────────────────────────────────────
 def fetch_notices(site, p_instance):
     try:
         browser = p_instance.chromium.launch(headless=True)
@@ -120,6 +187,7 @@ def fetch_notices(site, p_instance):
     return notices, None
 
 
+# ── 메인 ─────────────────────────────────────────────────────────
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
     state = load_state()
@@ -132,7 +200,9 @@ def main():
 
     with sync_playwright() as p:
         for site in SITES:
+            log.info(f"[{site['name']}] 스크래핑 시작")
             current, err = fetch_notices(site, p)
+
             if err or current is None:
                 results["sites"].append({
                     "id": site["id"], "name": site["name"],
@@ -141,11 +211,16 @@ def main():
                     "new_count": 0, "new_items": [], "total": 0,
                 })
             else:
-                def item_id(n): return f"{n['num']}||{n['title']}"
-                prev_ids    = set(state.get(site["id"], []))
-                current_ids = [item_id(n) for n in current]
-                new_items   = [n for n in current if item_id(n) not in prev_ids] if prev_ids else []
-                state[site["id"]] = current_ids[:30]
+                site_state   = state.get(site["id"], {})
+                baseline_ids = get_baseline_ids(site_state)   # 7일 전 목록
+                current_ids  = [item_id(n) for n in current]
+
+                # 기준 목록이 있을 때만 비교, 없으면 새 글 = 0 (첫 실행)
+                new_items = [n for n in current if item_id(n) not in baseline_ids] \
+                            if baseline_ids else []
+
+                # 오늘 목록 저장 및 오래된 데이터 정리
+                state[site["id"]] = update_site_state(site_state, current_ids)
 
                 results["sites"].append({
                     "id": site["id"], "name": site["name"],
@@ -155,7 +230,7 @@ def main():
                     "new_items": new_items[:10],
                     "total": len(current),
                 })
-                log.info(f"[{site['name']}] 신규: {len(new_items)}건 / 전체: {len(current)}건")
+                log.info(f"[{site['name']}] 신규(7일 기준): {len(new_items)}건 / 전체: {len(current)}건")
 
     save_state(state)
 
