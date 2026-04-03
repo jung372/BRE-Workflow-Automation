@@ -5,6 +5,10 @@ on:
     - cron: '0 * * * *'   # 매 1시간마다 실행 (UTC 기준, 한국시간 매 시 정각+9h)
   workflow_dispatch:       # GitHub Actions 탭에서 수동 실행 가능
 
+# Node.js 24 강제 적용 (Node.js 20 deprecated 경고 해결)
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write          # 결과 JSON을 repo에 커밋할 수 있도록 쓰기 권한 부여
 
@@ -20,13 +24,15 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: 📦 패키지 설치
         run: pip install -r requirements.txt
 
+      - name: 🌐 Playwright 시스템 의존성 설치
+        run: playwright install-deps chromium
+
       - name: 🌐 Playwright Chromium 브라우저 설치
-        run: playwright install chromium --with-deps
+        run: playwright install chromium
 
       - name: 🔍 스크래핑 실행
         run: python scraper.py
