@@ -40,7 +40,7 @@ SITES = [
         "title_idx": 1, "date_idx": 2, "num_idx": 0,
     },
     {
-        "id": "eiass_wind", "name": "소규모환경영향평가(풍력)", "icon": "🌬️", "color": "#0ea5e9",
+        "id": "eiass_wind", "name": "소규모 환평(풍력)", "icon": "🌬️", "color": "#0ea5e9",
         "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
         "type": "eiass",
     },
