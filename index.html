@@ -358,7 +358,7 @@
       </div>
       <div class="stat" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
         <div class="stat-label">마지막 확인</div>
-        <div class="stat-value" style="font-size:20px; color:var(--text);" id="statTime">—</div>
+        <div class="stat-value" style="font-size:18px; color:var(--text);" id="statTime">—</div>
       </div>
     </div>
     
@@ -464,7 +464,7 @@
     });
 
     const isFirstTime = !data.checked_at || data.checked_at === '-';
-    document.getElementById('statTime').textContent  = isFirstTime ? '--:--' : data.checked_at.slice(11, 16);
+    document.getElementById('statTime').textContent  = isFirstTime ? '--:--' : data.checked_at.slice(0, 16);
 
     const totalNew = data.sites.reduce((s, x) => s + (x.new_count || 0), 0);
     document.getElementById('statTotal').textContent = totalNew;
