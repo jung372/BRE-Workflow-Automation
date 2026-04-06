@@ -225,7 +225,7 @@ def main():
         # 가장 최근 게시글의 (번호, 제목) 조합으로 신규 여부 판단
         prev_ids = set(state.get(site_key, []))
 
-        # 고유 ID = "번호||제목"
+        # 고유 ID = "제목||날짜"
         def item_id(n):
             return f"{n['title']}||{n['date']}"
 
