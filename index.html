@@ -115,14 +115,14 @@
     /* ── Control Bar ── */
     .control-bar {
       display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
+      flex-wrap: wrap; gap: 8px;
       background: var(--glass-bg);
       backdrop-filter: var(--glass-blur);
       -webkit-backdrop-filter: var(--glass-blur);
       border: 1px solid var(--glass-border);
       border-radius: var(--radius);
-      padding: 16px 24px;
-      margin-bottom: 28px;
+      padding: 10px 16px;
+      margin-bottom: 24px;
       box-shadow: var(--shadow);
       animation: fadeSlideDown .5s ease .4s both;
     }
@@ -164,8 +164,8 @@
     }
     .stat { flex: 1; min-width: 120px; border-right: 1px solid rgba(255,255,255,0.1); }
     .stat:last-child { border-right: none; }
-    .stat-label { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .stat-value { font-size: 24px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    .stat-label { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-value { font-size: 18px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
     .stat-value.amber { color: var(--amber); }
     .stat-value.green { color: var(--baywa-green); }
 
@@ -345,32 +345,32 @@
 
   <!-- Combined Control & Stats Bar -->
   <div class="control-bar" id="statsBar">
-    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+    <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
       <div class="stat" style="border:none;">
         <div class="stat-label">전체 신규 게시글</div>
         <div class="stat-value amber" id="statTotal">0</div>
       </div>
-      <div class="stat" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
+      <div class="stat" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 12px;">
         <div class="stat-label">모니터링 사이트</div>
         <div class="stat-value green" id="statSites">0</div>
       </div>
-      <div class="stat" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
+      <div class="stat" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 12px;">
         <div class="stat-label">마지막 확인</div>
-        <div class="stat-value" style="font-size:18px; color:var(--text); display:flex; align-items:center;">
+        <div class="stat-value" style="font-size:14px; color:var(--text); display:flex; align-items:center;">
           <span id="statTime">—</span>
-          <span style="font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.8); margin-left: 16px;">⚡ 매 1시간마다 자동 갱신</span>
+          <span style="font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.8); margin-left: 8px; white-space: nowrap;">⚡ 매 1시간마다 자동 갱신</span>
         </div>
       </div>
     </div>
     
-    <div style="display:flex;gap:16px;align-items:center;flex-wrap: wrap;">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap: nowrap;">
       <div class="auto-bar-wrap">
-        <span>화면갱신</span>
+        <span style="font-size:11px;">화면갱신</span>
         <div class="auto-bar-bg"><div class="auto-bar-fill" id="autoBar"></div></div>
-        <span id="autoCountdown" style="min-width: 32px; text-align:right;">60s</span>
+        <span id="autoCountdown" style="min-width: 30px; text-align:right; font-size:11px;">60s</span>
       </div>
-      <button class="btn btn-primary" id="btnRefresh" onclick="refresh()">
-        <span id="refreshIcon" style="font-size:18px;">↻</span> 새로고침
+      <button class="btn btn-primary" id="btnRefresh" onclick="refresh()" style="padding: 6px 12px; font-size: 12px;">
+        <span id="refreshIcon" style="font-size:14px;">↻</span> 새로고침
       </button>
     </div>
   </div>
