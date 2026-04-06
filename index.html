@@ -340,9 +340,7 @@
     <div class="header-badge"><div class="pulse-dot"></div> 실시간 모니터링 활성</div>
     <h1>주요 사이트 공지 모니터링 대시보드</h1>
 
-    <div class="actions-badge">
-      ⚡ 매 1시간마다 자동 갱신
-    </div>
+
   </header>
 
   <!-- Combined Control & Stats Bar -->
@@ -358,7 +356,10 @@
       </div>
       <div class="stat" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
         <div class="stat-label">마지막 확인</div>
-        <div class="stat-value" style="font-size:18px; color:var(--text);" id="statTime">—</div>
+        <div class="stat-value" style="font-size:18px; color:var(--text); display:flex; align-items:center;">
+          <span id="statTime">—</span>
+          <span style="font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.8); margin-left: 16px;">⚡ 매 1시간마다 자동 갱신</span>
+        </div>
       </div>
     </div>
     
