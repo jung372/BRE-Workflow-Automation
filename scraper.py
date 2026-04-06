@@ -40,9 +40,9 @@ SITES = [
         "title_idx": 1, "date_idx": 2, "num_idx": 0,
     },
     {
-        "id": "nie_notice", "name": "생태.자연도 공고", "icon": "🍃", "color": "#eab308",
-        "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
-        "title_idx": 1, "date_idx": 4, "num_idx": 0,
+        "id": "eiass_wind", "name": "소규모환경영향평가(풍력)", "icon": "🌬️", "color": "#0ea5e9",
+        "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
+        "type": "eiass",
     },
     {
         "id": "kepco_notice", "name": "한전 재분배 용량 공지", "icon": "⚡", "color": "#f97316",
@@ -50,9 +50,9 @@ SITES = [
         "type": "kepco",
     },
     {
-        "id": "eiass_wind", "name": "소규모환경영향평가(풍력)", "icon": "🌬️", "color": "#0ea5e9",
-        "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-        "type": "eiass",
+        "id": "nie_notice", "name": "생태.자연도 공고", "icon": "🍃", "color": "#eab308",
+        "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
+        "title_idx": 1, "date_idx": 4, "num_idx": 0,
     },
 ]
 
