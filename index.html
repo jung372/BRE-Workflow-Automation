@@ -170,15 +170,11 @@
     .stat-value.green { color: var(--baywa-green); }
 
     /* ── Card Grid ── */
-    /* ── 카드 그리드: 항상 4열 1행 고정 ── */
     .cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       margin-bottom: 40px;
-    }
-    @media (max-width: 1024px) {
-      .cards { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
       .cards { grid-template-columns: 1fr; }
@@ -372,7 +368,7 @@
     </div>
     <div class="stat">
       <div class="stat-label">모니터링 사이트</div>
-      <div class="stat-value green" id="statSites">4</div>
+      <div class="stat-value green" id="statSites">5</div>
     </div>
     <div class="stat" style="border:none;">
       <div class="stat-label">마지막 확인</div>
@@ -419,6 +415,15 @@
       <div class="skeleton sk-line"></div>
       <div class="skeleton sk-line short"></div>
     </div>
+    <div class="card" id="skel5">
+      <div class="card-header"><div>
+        <div class="skeleton sk-line short" style="width:40px;height:36px;margin-bottom:12px;"></div>
+        <div class="skeleton sk-line short" style="width:140px;height:18px;"></div>
+      </div></div>
+      <div class="new-count-wrap"><div class="skeleton sk-count"></div></div>
+      <div class="skeleton sk-line"></div>
+      <div class="skeleton sk-line short"></div>
+    </div>
   </div>
 
 </div>
@@ -457,7 +462,7 @@
   function refresh() { resetAutoTimer(); loadData(); }
 
   function render(data) {
-    ['skel1','skel2','skel3','skel4'].forEach(id => {
+    ['skel1','skel2','skel3','skel4','skel5'].forEach(id => {
       const el = document.getElementById(id); if(el) el.remove();
     });
 

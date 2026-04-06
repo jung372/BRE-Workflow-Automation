@@ -9,10 +9,13 @@
   - 7일치 데이터 미만이면 가장 오래된 저장 목록 기준
   - 첫 실행 시에는 오늘 목록만 저장하고 새 글 = 0
 """
-import json, os, logging
+import json, os, logging, requests, urllib3
 from datetime import datetime, timezone, timedelta
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
+
+# SSL 경고 비활성화 (EIASS 사이트 특성 대응)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 BASE_DIR      = os.path.dirname(os.path.abspath(__file__))
 STATE_FILE    = os.path.join(BASE_DIR, "last_state.json")
@@ -46,6 +49,11 @@ SITES = [
         "url": "https://online.kepco.co.kr/EWM040D00",
         "type": "kepco",
     },
+    {
+        "id": "eiass_wind", "name": "소규모환경영향평가(풍력)", "icon": "🌬️", "color": "#0ea5e9",
+        "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
+        "type": "eiass",
+    },
 ]
 
 
@@ -74,29 +82,23 @@ def save_state(state):
 def get_baseline_ids(site_state):
     """
     7일 전 날짜 기준의 게시글 ID 목록(set) 반환.
-      - 정확히 7일 전 날짜 데이터가 없으면 그 이전 중 가장 최근 날짜 사용
-      - 7일치 미만이면 가장 오래된 날짜의 목록 사용
-      - 저장된 목록이 아예 없으면 빈 set 반환 (첫 실행)
     """
-    # 구버전 형식(list) → 빈 dict로 마이그레이션
     if isinstance(site_state, list):
         return set()
 
     daily = site_state.get("daily_snapshots", {})
     if not daily:
-        return set()   # 첫 실행: 새 글 없음으로 처리
+        return set()
 
     today      = datetime.now(KST).date()
     target_str = (today - timedelta(days=BASELINE_DAYS)).strftime("%Y-%m-%d")
     sorted_dates = sorted(daily.keys())
 
-    # target_str 이하인 날짜 중 가장 최근 날짜 선택
     baseline_date = None
     for d in sorted_dates:
         if d <= target_str:
             baseline_date = d
 
-    # 7일치 데이터가 아직 없으면 보관 중인 가장 오래된 날짜 사용
     if baseline_date is None:
         baseline_date = sorted_dates[0]
 
@@ -113,9 +115,8 @@ def update_site_state(site_state, current_ids):
     cutoff_str = (datetime.now(KST) - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
 
     daily = site_state.get("daily_snapshots", {})
-    daily[today_str] = current_ids[:50]   # 오늘 목록 저장 (최대 50개)
+    daily[today_str] = current_ids[:100]   # 오늘 목록 저장 (EIASS 등 대비 100개 상향)
 
-    # KEEP_DAYS 이전 데이터 삭제
     site_state["daily_snapshots"] = {
         k: v for k, v in daily.items() if k >= cutoff_str
     }
@@ -123,7 +124,52 @@ def update_site_state(site_state, current_ids):
 
 
 # ── 스크래핑 ─────────────────────────────────────────────────────
+def fetch_eiass(site):
+    """EIASS POST API 직접 호출"""
+    url = "https://www.eiass.go.kr/searchApi/search.do"
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Referer': site["url"],
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    }
+    data = {
+        'query': '풍력',
+        'collection': 'business',
+        'urlString': '&alias=2&completeFl=&openFl=&businessExquery=&whrChFl=&aSYear=&aEYear=&rSYear=&rEYear=&orgnCd=&nrvFl=&bizGubunCd=&perssGubn=M',
+        'viewName': '/eiass/user/biz/base/info/searchListPer_searchApi',
+        'currentPage': '1',
+        'sort': 'DATE/DESC',
+        'listCount': '100',
+    }
+    try:
+        resp = requests.post(url, headers=headers, data=data, timeout=30, verify=False)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        rows = soup.select('tbody tr')
+        
+        notices = []
+        for r in rows:
+            tds = r.find_all('td')
+            if len(tds) >= 4:
+                biz_code = tds[0].get_text(strip=True)
+                biz_name = tds[2].get_text(strip=True)
+                date_rcv = tds[3].get_text(strip=True).replace('.', '-') # YYYY-MM-DD 형식 통일
+                notices.append({
+                    "num": biz_code,
+                    "title": biz_name,
+                    "date": date_rcv,
+                    "url": site["url"]
+                })
+        return notices, None
+    except Exception as e:
+        return None, str(e)
+
+
 def fetch_notices(site, p_instance):
+    if site.get("type") == "eiass":
+        return fetch_eiass(site)
+
     try:
         browser = p_instance.chromium.launch(headless=True)
         context = browser.new_context(
@@ -200,14 +246,14 @@ def main():
 
     with sync_playwright() as p:
         for site in SITES:
-            log.info(f"[{site['name']}] 스크래핑 시작")
+            log.info(f"[{site['name']}] 데이터 수집 시작")
             current, err = fetch_notices(site, p)
 
             if err or current is None:
                 results["sites"].append({
                     "id": site["id"], "name": site["name"],
                     "icon": site["icon"], "color": site["color"],
-                    "url": site["url"], "error": err or "스크래핑 실패",
+                    "url": site["url"], "error": err or "데이터 수집 실패",
                     "new_count": 0, "new_items": [], "total": 0,
                 })
             else:
@@ -215,7 +261,7 @@ def main():
                 baseline_ids = get_baseline_ids(site_state)   # 7일 전 목록
                 current_ids  = [item_id(n) for n in current]
 
-                # 기준 목록이 있을 때만 비교, 없으면 새 글 = 0 (첫 실행)
+                # 기준 목록이 있을 때만 비교, 없으면 새 글 = 0 (첫 실행 시 기준값 설정)
                 new_items = [n for n in current if item_id(n) not in baseline_ids] \
                             if baseline_ids else []
 
