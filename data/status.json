@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-04-10 19:36:07",
+  "checked_at": "2026-04-10 23:36:15",
   "sites": [
     {
       "id": "notice",
@@ -295,10 +295,71 @@
       "icon": "🍃",
       "color": "#eab308",
       "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
-      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=\", waiting until \"domcontentloaded\"\n",
-      "new_count": 0,
-      "new_items": [],
-      "total": 0
+      "error": null,
+      "new_count": 10,
+      "new_items": [
+        {
+          "num": "공지",
+          "title": "[공고 제2026-40호] 2026년 생태·자연도(生態 自然圖) 정기고시...",
+          "date": "2026-02-27",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "공지",
+          "title": "생태·자연도 등급 변경 절차 및 관련 서류",
+          "date": "2022-03-16",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "687",
+          "title": "[공고 제2026-66호] 생태·자연도(生態 自然圖) 수시고시(안) 국민...NEW",
+          "date": "2026-04-10",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "686",
+          "title": "[공고 제2026-65호] 생태·자연도(生態 自然圖) 수시고시(안) 국민...NEW",
+          "date": "2026-04-10",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "685",
+          "title": "[공고 제2026-68호] 생태·자연도(生態 自然圖) 수시고시(안) 국민...NEW",
+          "date": "2026-04-10",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "684",
+          "title": "[공고 제2026-59호] 생태·자연도(生態 自然圖) 수시고시(안) 국민...",
+          "date": "2026-04-02",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "683",
+          "title": "[공고 제2026-45호] 생태·자연도(生態 自然圖) 수시고시(안) 국민...",
+          "date": "2026-03-11",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "682",
+          "title": "[공고 제2026-37호] 생태·자연도(生態 自然圖) 수시고시(안) 국민...",
+          "date": "2026-02-26",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "681",
+          "title": "[공고 제2026-35호] 생태·자연도(生態 自然圖) 수시고시(안) 국민...",
+          "date": "2026-02-25",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "680",
+          "title": "[공고 제2026-32호] 생태·자연도(生態 自然圖) 수시고시(안) 국민...",
+          "date": "2026-02-24",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        }
+      ],
+      "total": 10
     }
   ],
   "is_updating": false
