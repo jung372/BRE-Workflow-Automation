@@ -22,8 +22,8 @@ STATE_FILE    = os.path.join(BASE_DIR, "last_state.json")
 DATA_DIR      = os.path.join(BASE_DIR, "data")
 OUTPUT        = os.path.join(DATA_DIR, "status.json")
 KST           = timezone(timedelta(hours=9))
-BASELINE_DAYS = 7   # 비교 기준: 며칠 전 목록과 비교할지
-KEEP_DAYS     = 8   # 목록 보관 기간 (기준일 + 여유 1일)
+BASELINE_DAYS = 5   # 비교 기준: 며칠 전 목록과 비교할지
+KEEP_DAYS     = 6   # 목록 보관 기간 (기준일 + 여유 1일)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
 log = logging.getLogger(__name__)
@@ -102,7 +102,7 @@ def get_baseline_ids(site_state):
     if baseline_date is None:
         baseline_date = sorted_dates[0]
 
-    log.info(f"  비교 기준 날짜: {baseline_date} (목표 7일 전: {target_str})")
+    log.info(f"  비교 기준 날짜: {baseline_date} (목표 {BASELINE_DAYS}일 전: {target_str})")
     return set(daily[baseline_date])
 
 
@@ -265,7 +265,7 @@ def main():
                 })
             else:
                 site_state   = state.get(site["id"], {})
-                baseline_ids = get_baseline_ids(site_state)   # 7일 전 목록
+                baseline_ids = get_baseline_ids(site_state)   # 5일 전 목록
                 current_ids  = [item_id(n) for n in current]
 
                 # 기준 목록이 있을 때만 비교, 없으면 새 글 = 0 (첫 실행 시 기준값 설정)
@@ -283,7 +283,7 @@ def main():
                     "new_items": new_items[:10],
                     "total": len(current),
                 })
-                log.info(f"[{site['name']}] 신규(7일 기준): {len(new_items)}건 / 전체: {len(current)}건")
+                log.info(f"[{site['name']}] 신규({BASELINE_DAYS}일 기준): {len(new_items)}건 / 전체: {len(current)}건")
 
     save_state(state)
 
