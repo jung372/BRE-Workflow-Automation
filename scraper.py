@@ -63,7 +63,9 @@ def item_id(n):
     # 완료일·진행현황이 있으면(EIASS 등) 키에 포함 → 상태 변경도 신규로 감지
     comp  = n.get('comp_date', '')
     status = n.get('status', '')
-    return f"{n['title']}||{n['date']}||{comp}||{status}"
+    # 일부 사이트(NIE 등)가 제목에 'NEW' 뱃지를 붙였다 떼므로 제거 후 비교
+    title = re.sub(r'NEW$', '', n['title']).strip()
+    return f"{title}||{n['date']}||{comp}||{status}"
 
 
 # ── 상태 파일 ────────────────────────────────────────────────────
@@ -177,7 +179,7 @@ def fetch_eiass(site):
                     "date":      date_rcv,
                     "comp_date": comp_date,
                     "status":    status,
-                    "url":       site["url"]
+                    "url":       site["url"],
                 })
         return notices, None
     except Exception as e:
