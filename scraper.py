@@ -60,7 +60,10 @@ SITES = [
 
 # ── 게시글 고유 ID ──────────────────────────────────────────────
 def item_id(n):
-    return f"{n['title']}||{n['date']}"
+    # 완료일·진행현황이 있으면(EIASS 등) 키에 포함 → 상태 변경도 신규로 감지
+    comp  = n.get('comp_date', '')
+    status = n.get('status', '')
+    return f"{n['title']}||{n['date']}||{comp}||{status}"
 
 
 # ── 상태 파일 ────────────────────────────────────────────────────
@@ -161,16 +164,20 @@ def fetch_eiass(site):
             # 사업코드 형식이 아닌 행(두 번째 tbody 등)은 건너뜀
             if not biz_code_pattern.match(code_text):
                 continue
-            biz_code = code_text
-            biz_name = tds[2].get_text(strip=True)   # tds[2] = 사업명
-            date_rcv = tds[3].get_text(strip=True).replace('.', '-')  # tds[3] = 접수일
+            biz_code  = code_text
+            biz_name  = tds[2].get_text(strip=True)                    # tds[2] = 사업명
+            date_rcv  = tds[3].get_text(strip=True).replace('.', '-')  # tds[3] = 접수일
+            comp_date = tds[4].get_text(strip=True).replace('.', '-') if len(tds) > 4 else ''  # tds[4] = 완료일
+            status    = tds[5].get_text(strip=True) if len(tds) > 5 else ''                    # tds[5] = 진행현황
 
             if biz_name:
                 notices.append({
-                    "num": biz_code,
-                    "title": biz_name,
-                    "date": date_rcv,
-                    "url": site["url"]
+                    "num":       biz_code,
+                    "title":     biz_name,
+                    "date":      date_rcv,
+                    "comp_date": comp_date,
+                    "status":    status,
+                    "url":       site["url"]
                 })
         return notices, None
     except Exception as e:
