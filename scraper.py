@@ -235,7 +235,7 @@ def fetch_notices(site, p_instance):
         if len(rows) == 1 and "없습니다" in rows[0].get_text():
             return [], None
         for row in rows:
-            tds = row.find_all("td")
+            tds = row.find_all(["td", "th"])
             if len(tds) < max(site.get("title_idx", 0), site.get("date_idx", 0)) + 1:
                 continue
             try:
@@ -244,6 +244,11 @@ def fetch_notices(site, p_instance):
                 title_a  = title_td.find("a")
                 title    = title_a.get_text(strip=True) if title_a else title_td.get_text(strip=True)
                 date     = tds[site["date_idx"]].get_text(strip=True)
+                
+                # 추가: 만약 number가 이미지 태그(alt="공지")인 경우 처리
+                if not num and tds[site["num_idx"]].find("img") and tds[site["num_idx"]].find("img").get("alt"):
+                    num = tds[site["num_idx"]].find("img").get("alt").strip()
+                
                 if title:
                     notices.append({"num": num, "title": title, "date": date, "url": site["url"]})
             except:
