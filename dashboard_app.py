@@ -260,8 +260,8 @@ def update_data_task():
             log.error(f"백그라운드 작업 중 오류: {e}")
             with _data_lock: _latest_data["is_updating"] = False
         
-        log.info("데이터 업데이트 완료. 10분 대기...")
-        time.sleep(600)
+        log.info("데이터 업데이트 완료. 1시간 대기...")
+        time.sleep(3600)
 
 @app.route("/api/status")
 def api_status():
