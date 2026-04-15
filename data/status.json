@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-04-15 19:58:50",
+  "checked_at": "2026-04-15 21:01:00",
   "sites": [
     {
       "id": "notice",
@@ -43,10 +43,10 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7fdc784b6250>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
+      "error": null,
       "new_count": 0,
       "new_items": [],
-      "total": 0
+      "total": 100
     },
     {
       "id": "kepco_notice",
