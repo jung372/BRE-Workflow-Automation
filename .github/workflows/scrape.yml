@@ -35,6 +35,16 @@ jobs:
         run: playwright install chromium
 
       - name: 🔍 스크래핑 실행
+        env:
+          METMAST_SIRU_URL: ${{ secrets.METMAST_SIRU_URL }}
+          METMAST_SIRU_ID:  ${{ secrets.METMAST_SIRU_ID }}
+          METMAST_SIRU_PW:  ${{ secrets.METMAST_SIRU_PW }}
+          METMAST_GOGK_URL: ${{ secrets.METMAST_GOGK_URL }}
+          METMAST_GOGK_ID:  ${{ secrets.METMAST_GOGK_ID }}
+          METMAST_GOGK_PW:  ${{ secrets.METMAST_GOGK_PW }}
+          METMAST_BLMU_URL: ${{ secrets.METMAST_BLMU_URL }}
+          METMAST_BLMU_ID:  ${{ secrets.METMAST_BLMU_ID }}
+          METMAST_BLMU_PW:  ${{ secrets.METMAST_BLMU_PW }}
         run: python scraper.py
 
       - name: 💾 결과 커밋 & 푸시
