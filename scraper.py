@@ -285,42 +285,57 @@ def check_metmast(m, p_instance):
         context = browser.new_context(ignore_https_errors=True)
         page = context.new_page()
         
-        # 기본 인증 대응 (401 방지)
-        # 만약 HTTP Basic Auth 팝업이라면:
-        page.set_extra_http_headers({"Authorization": "Basic QW1tb25pdDpBbW1vbml0"}) # Ammonit:Ammonit 인코딩 값 등, 필요시 무시.
+        log.info(f"  [{m['name']}] 접속 중: {url}")
+        page.goto(url, timeout=40000, wait_until="load")
         
-        page.goto(url, timeout=30000, wait_until="domcontentloaded")
-        
-        # 1. Access Code: Ammonit 입력 후 Send
+        # 1. Access Code: Ammonit
+        access_selector = 'input[name="access"], input[type="password"]'
         try:
-            page.fill('input[type="password"], input[name*="code"], input[name*="access"]', 'Ammonit', timeout=5000)
-            page.click('input[type="submit"], button:has-text("Send"), button[type="submit"]')
-            page.wait_for_load_state("domcontentloaded")
-            page.wait_for_timeout(2000)
-        except Exception as e:
-            # 폼이 없거나 못 찾은 경우 기본 인증일 수도 있음 (위 ignore_https_errors 등이 처리)
-            pass
+            page.wait_for_selector(access_selector, timeout=10000)
+            page.fill(access_selector, 'Ammonit')
+            page.keyboard.press("Enter")
+            page.wait_for_load_state("load")
+            page.wait_for_timeout(3000)
+        except Exception:
+            pass # 이미 로그인 세션이 있거나 접근 코드 창이 안 뜰 경우 건너뜀
             
-        # 2. Login: user / pw
+        # 2. Login: User / PW
+        user_selector = 'input[name="user"], input[name*="login"]'
         try:
-            page.fill('input[type="text"], input[name*="user"], input[name*="login"]', user, timeout=5000)
-            page.fill('input[type="password"], input[name*="pass"]', pw)
-            page.click('input[type="submit"], button:has-text("Login"), button[type="submit"]')
-            page.wait_for_load_state("domcontentloaded")
-            page.wait_for_timeout(2000)
+            page.wait_for_selector(user_selector, timeout=10000)
+            page.fill(user_selector, user)
+            page.fill('input[type="password"]', pw)
+            page.keyboard.press("Enter")
+            # 내비게이션이 완전히 끝날 때까지 대기
+            page.wait_for_load_state("networkidle", timeout=20000)
+            page.wait_for_timeout(3000)
         except Exception:
             pass
             
-        content = page.content()
+        try:
+            content = page.content()
+        except:
+            # 내비게이션 중 등으로 인해 content() 실패 시 잠시 더 대기 후 재시도
+            page.wait_for_timeout(3000)
+            content = page.content()
+            
         browser.close()
         
-        if "Welcome to Meteo-40" in content or "Meteo-40 plus" in content or "Logout" in content:
+        # 성공 판정
+        keywords = ["Welcome", "Meteo-40", "Logout", "Dashboard"]
+        found = any(kw in content for kw in keywords)
+        
+        if found:
             return {"id": m["id"], "name": m["name"], "status": "Online"}
         else:
+            # 디버깅용 로그: 바디 텍스트 일부 출력
+            soup_debug = BeautifulSoup(content, "html.parser")
+            body_text = soup_debug.get_text(separator=" ", strip=True)[:200]
+            log.warning(f"  [{m['name']}] 상태 확인 실패 (키워드 미발견). 페이지 요약: {body_text}")
             return {"id": m["id"], "name": m["name"], "status": "Offline"}
 
     except Exception as e:
-        log.error(f"MetMast {m['name']} check failed: {e}")
+        log.error(f"  [{m['name']}] 체크 중 오류: {e}")
         return {"id": m["id"], "name": m["name"], "status": "Offline"}
 
 
