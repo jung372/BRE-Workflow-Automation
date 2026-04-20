@@ -126,20 +126,39 @@ def get_baseline_ids(site_state):
     return set(daily[baseline_date])
 
 
-def update_site_state(site_state, current_ids):
+def update_site_state(site_state, current_ids, current_items):
     """오늘 날짜의 게시글 목록을 저장하고, KEEP_DAYS 초과 데이터는 삭제."""
     if isinstance(site_state, list):
         site_state = {}
 
-    today_str  = datetime.now(KST).strftime("%Y-%m-%d")
-    cutoff_str = (datetime.now(KST) - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
+    now        = datetime.now(KST)
+    today_str  = now.strftime("%Y-%m-%d")
+    hour_str   = now.strftime("%Y-%m-%d %H")
+    cutoff_str = (now - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
+    cutoff_hr  = (now - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d %H")
 
+    # 일별 스냅샷 (대시보드 5일 비교용)
     daily = site_state.get("daily_snapshots", {})
-    daily[today_str] = current_ids[:100]   # 오늘 목록 저장 (EIASS 등 대비 100개 상향)
-
+    daily[today_str] = current_ids[:100]
     site_state["daily_snapshots"] = {
         k: v for k, v in daily.items() if k >= cutoff_str
     }
+
+    # 시간별 스냅샷 (Teams 윈도우 비교용: 전 평일 08시 vs 금일 08시)
+    hourly = site_state.get("hourly_snapshots", {})
+    hourly[hour_str] = [
+        {
+            "id":    item_id(item),
+            "title": item.get("title", ""),
+            "date":  item.get("date", ""),
+            "url":   item.get("url", ""),
+        }
+        for item in (current_items or [])[:100]
+    ]
+    site_state["hourly_snapshots"] = {
+        k: v for k, v in hourly.items() if k >= cutoff_hr
+    }
+
     return site_state
 
 
@@ -380,7 +399,7 @@ def main():
                             if baseline_ids else []
 
                 # 오늘 목록 저장 및 오래된 데이터 정리
-                state[site["id"]] = update_site_state(site_state, current_ids)
+                state[site["id"]] = update_site_state(site_state, current_ids, current)
 
                 results["sites"].append({
                     "id": site["id"], "name": site["name"],
