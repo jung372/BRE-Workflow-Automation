@@ -171,8 +171,9 @@ def main():
     card = build_card(new_items, metmasts)
     resp = requests.post(WEBHOOK_URL, json=card, timeout=15)
 
-    # Teams Webhook 정상 응답: HTTP 200, body "1"
-    if resp.status_code == 200 and resp.text.strip() == "1":
+    # 구형 Office 365 Connector: 200 + body "1"
+    # 신형 Power Automate Workflow: 202 + 빈 body
+    if resp.status_code in (200, 202):
         print("✅ Teams 알림 발송 완료")
     else:
         print(f"❌ 발송 실패: HTTP {resp.status_code} / {resp.text[:200]}")
