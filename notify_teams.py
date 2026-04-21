@@ -126,6 +126,12 @@ def build_card(new_items: list, metmasts: list) -> dict:
         ]
         sections.append({"title": "신규 게시글 목록", "facts": post_facts})
 
+    sections.append({
+        "facts": [
+            {"name": "대시보드 링크", "value": f"[{DASHBOARD_URL}]({DASHBOARD_URL})"},
+        ]
+    })
+
     return {
         "@type":      "MessageCard",
         "@context":   "https://schema.org/extensions",
