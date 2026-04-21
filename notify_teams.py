@@ -128,7 +128,7 @@ def build_card(new_items: list, metmasts: list) -> dict:
 
     sections.append({
         "facts": [
-            {"name": "대시보드 링크", "value": f"[대시보드 바로가기]({DASHBOARD_URL})"},
+            {"name": "", "value": f"[모니터링 대시보드 바로가기]({DASHBOARD_URL})"},
         ]
     })
 
