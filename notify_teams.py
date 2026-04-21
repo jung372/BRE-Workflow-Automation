@@ -164,7 +164,7 @@ def main():
 
     metmasts             = load_metmasts()
     new_items, b_key, a_key = get_new_items(state)
-    offline              = [m for m in metmasts if m.get("status") != "Online"]
+    offline              = [m for m in metmasts if m.get("status") != "Online" and m.get("id") not in MUTED_METMASTS]
 
     print(f"비교 윈도우: {a_key}  →  {b_key}")
     print(f"신규 게시글: {len(new_items)}건 / 오프라인 계측기: {len(offline)}대")
