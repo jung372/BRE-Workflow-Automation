@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-04-24 11:34:12",
+  "checked_at": "2026-04-24 14:34:58",
   "sites": [
     {
       "id": "notice",
@@ -47,7 +47,7 @@
     },
     {
       "id": "nie_notice",
-      "name": "생태.자연도 공고",
+      "name": "생태·자연도 공고",
       "icon": "🍃",
       "color": "#eab308",
       "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
