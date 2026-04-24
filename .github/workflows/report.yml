@@ -35,6 +35,6 @@ jobs:
       - name: 🔔 Teams 알림 발송
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          DASHBOARD_URL: https://jung372.github.io/BRE-Workflow-Automation2/
-          FORCE_SEND: ${{ inputs.force_send }}
+          DASHBOARD_URL:     https://jung372.github.io/BRE-Workflow-Automation2/
+          FORCE_SEND:        ${{ inputs.force_send }}
         run: python notify_teams.py
