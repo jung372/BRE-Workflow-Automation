@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-19 17:35:26",
+  "checked_at": "2026-05-19 21:09:44",
   "sites": [
     {
       "id": "notice",
@@ -30,17 +30,8 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 1,
-      "new_items": [
-        {
-          "num": "ME20250169",
-          "title": "포항 장기곶풍력 발전단지",
-          "date": "2026-05-11",
-          "comp_date": "2026-05-19",
-          "status": "",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        }
-      ],
+      "new_count": 0,
+      "new_items": [],
       "total": 62
     },
     {
