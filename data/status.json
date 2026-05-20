@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-20 09:04:46",
+  "checked_at": "2026-05-20 14:03:49",
   "sites": [
     {
       "id": "notice",
@@ -30,8 +30,17 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "ME20250169",
+          "title": "포항 장기곶풍력 발전단지",
+          "date": "2026-05-11",
+          "comp_date": "2026-05-20",
+          "status": "",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        }
+      ],
       "total": 62
     },
     {
@@ -52,8 +61,27 @@
       "color": "#eab308",
       "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
+      "new_count": 3,
+      "new_items": [
+        {
+          "num": "697",
+          "title": "[공고 제2026-104호] 생태·자연도(生態 自然圖) 수시고시(안) 국...NEW",
+          "date": "2026-05-20",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "696",
+          "title": "[공고 제2026-102호] 생태·자연도(生態 自然圖) 수시고시(안) 국...NEW",
+          "date": "2026-05-20",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        },
+        {
+          "num": "695",
+          "title": "[공고 제2026-103호] 생태·자연도(生態 自然圖) 수시고시(안) 국...NEW",
+          "date": "2026-05-20",
+          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
+        }
+      ],
       "total": 10
     }
   ],
