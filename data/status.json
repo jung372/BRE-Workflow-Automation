@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-24 03:00:14",
+  "checked_at": "2026-05-24 04:24:02",
   "sites": [
     {
       "id": "notice",
@@ -29,19 +29,10 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": null,
-      "new_count": 1,
-      "new_items": [
-        {
-          "num": "ME20250169",
-          "title": "포항 장기곶풍력 발전단지",
-          "date": "2026-05-11",
-          "comp_date": "2026-05-20",
-          "status": "",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        }
-      ],
-      "total": 62
+      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7fc877d13650>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
     },
     {
       "id": "kepco_notice",
@@ -95,7 +86,7 @@
     {
       "id": "SIRU",
       "name": "SIRU",
-      "status": "Online"
+      "status": "Offline"
     },
     {
       "id": "GOGK",
