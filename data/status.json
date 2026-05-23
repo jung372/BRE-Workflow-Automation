@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-23 09:06:18",
+  "checked_at": "2026-05-23 13:39:56",
   "sites": [
     {
       "id": "notice",
@@ -95,7 +95,7 @@
     {
       "id": "SIRU",
       "name": "SIRU",
-      "status": "Offline"
+      "status": "Online"
     },
     {
       "id": "GOGK",
