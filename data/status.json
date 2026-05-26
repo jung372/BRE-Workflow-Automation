@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-26 09:04:38",
+  "checked_at": "2026-05-26 14:02:57",
   "sites": [
     {
       "id": "notice",
@@ -19,9 +19,16 @@
       "color": "#10b981",
       "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
-      "total": 11
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "공지",
+          "title": "제324차 전기위원회 개최 결과",
+          "date": "2026-05-26",
+          "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do"
+        }
+      ],
+      "total": 12
     },
     {
       "id": "eiass_wind",
@@ -78,7 +85,7 @@
     {
       "id": "BLMU",
       "name": "BLMU",
-      "status": "Offline"
+      "status": "Online"
     },
     {
       "id": "DKAM",
