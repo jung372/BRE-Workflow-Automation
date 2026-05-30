@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-30 22:26:58",
+  "checked_at": "2026-05-31 00:05:54",
   "sites": [
     {
       "id": "notice",
@@ -26,15 +26,8 @@
       "color": "#10b981",
       "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do",
       "error": null,
-      "new_count": 1,
-      "new_items": [
-        {
-          "num": "공지",
-          "title": "제324차 전기위원회 개최 결과",
-          "date": "2026-05-26",
-          "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do"
-        }
-      ],
+      "new_count": 0,
+      "new_items": [],
       "total": 12
     },
     {
