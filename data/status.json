@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-31 07:00:51",
+  "checked_at": "2026-05-31 08:59:44",
   "sites": [
     {
       "id": "notice",
@@ -47,10 +47,10 @@
       "icon": "⚡",
       "color": "#f97316",
       "url": "https://online.kepco.co.kr/EWM040D00",
-      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://online.kepco.co.kr/EWM040D00\", waiting until \"domcontentloaded\"\n",
+      "error": null,
       "new_count": 0,
       "new_items": [],
-      "total": 0
+      "total": 10
     },
     {
       "id": "nie_notice",
@@ -68,7 +68,7 @@
     {
       "id": "SIRU",
       "name": "SIRU",
-      "status": "Online"
+      "status": "Offline"
     },
     {
       "id": "GOGK",
