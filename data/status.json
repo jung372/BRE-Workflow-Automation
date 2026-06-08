@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-06-08 07:03:00",
+  "checked_at": "2026-06-08 09:06:11",
   "sites": [
     {
       "id": "notice",
@@ -29,7 +29,7 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7efd0e01cd10>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
+      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7f09d443cb10>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
       "new_count": 0,
       "new_items": [],
       "total": 0
@@ -40,10 +40,10 @@
       "icon": "⚡",
       "color": "#f97316",
       "url": "https://online.kepco.co.kr/EWM040D00",
-      "error": null,
+      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://online.kepco.co.kr/EWM040D00\", waiting until \"domcontentloaded\"\n",
       "new_count": 0,
       "new_items": [],
-      "total": 10
+      "total": 0
     },
     {
       "id": "nie_notice",
