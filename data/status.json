@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-06-12 17:24:53",
+  "checked_at": "2026-06-12 21:18:18",
   "sites": [
     {
       "id": "notice",
@@ -7,10 +7,10 @@
       "icon": "📢",
       "color": "#3b82f6",
       "url": "https://www.korec.go.kr/notice/selectNoticeList.do",
-      "error": null,
+      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.korec.go.kr/notice/selectNoticeList.do\", waiting until \"domcontentloaded\"\n",
       "new_count": 0,
       "new_items": [],
-      "total": 16
+      "total": 0
     },
     {
       "id": "result",
@@ -18,10 +18,10 @@
       "icon": "📋",
       "color": "#10b981",
       "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do",
-      "error": null,
+      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.korec.go.kr/notice/result/selectNoticeList.do\", waiting until \"domcontentloaded\"\n",
       "new_count": 0,
       "new_items": [],
-      "total": 12
+      "total": 0
     },
     {
       "id": "eiass_wind",
@@ -29,10 +29,10 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": null,
+      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7f51e245f910>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
       "new_count": 0,
       "new_items": [],
-      "total": 62
+      "total": 0
     },
     {
       "id": "kepco_notice",
@@ -51,29 +51,10 @@
       "icon": "🍃",
       "color": "#eab308",
       "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
-      "error": null,
-      "new_count": 3,
-      "new_items": [
-        {
-          "num": "701",
-          "title": "[공고 제2026-114호] 생태·자연도(生態 自然圖) 수시고시(안) 국...NEW",
-          "date": "2026-06-12",
-          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
-        },
-        {
-          "num": "700",
-          "title": "[공고 제2026-112호] 생태·자연도(生態 自然圖) 수시고시(안) 국...NEW",
-          "date": "2026-06-12",
-          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
-        },
-        {
-          "num": "699",
-          "title": "[공고 제2026-109호] 생태·자연도(生態 自然圖) 수시고시(안) 국...",
-          "date": "2026-06-02",
-          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
-        }
-      ],
-      "total": 10
+      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=\", waiting until \"domcontentloaded\"\n",
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
     }
   ],
   "metmasts": [
