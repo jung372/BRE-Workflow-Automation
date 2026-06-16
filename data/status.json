@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-06-16 18:32:42",
+  "checked_at": "2026-06-17 00:09:44",
   "sites": [
     {
       "id": "notice",
@@ -29,7 +29,7 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7fdd70086990>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
+      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7fe1210a2cd0>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
       "new_count": 0,
       "new_items": [],
       "total": 0
