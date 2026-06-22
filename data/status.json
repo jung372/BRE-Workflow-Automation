@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-06-22 21:49:38",
+  "checked_at": "2026-06-23 02:39:53",
   "sites": [
     {
       "id": "notice",
@@ -30,17 +30,8 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 1,
-      "new_items": [
-        {
-          "num": "ME20260047",
-          "title": "울진 전곡 풍력발전단지 조성사업 소규모 환경영향평가서",
-          "date": "2026-06-18",
-          "comp_date": "",
-          "status": "",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        }
-      ],
+      "new_count": 0,
+      "new_items": [],
       "total": 61
     },
     {
