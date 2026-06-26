@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-06-26 07:20:54",
+  "checked_at": "2026-06-26 09:07:53",
   "sites": [
     {
       "id": "notice",
@@ -7,10 +7,17 @@
       "icon": "📢",
       "color": "#3b82f6",
       "url": "https://www.korec.go.kr/notice/selectNoticeList.do",
-      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.korec.go.kr/notice/selectNoticeList.do\", waiting until \"domcontentloaded\"\n",
-      "new_count": 0,
-      "new_items": [],
-      "total": 0
+      "error": null,
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "공지",
+          "title": "포항 호미곶풍력 발전사업 등 5개 발전사업 허가취소 처분 공고",
+          "date": "2026-06-24",
+          "url": "https://www.korec.go.kr/notice/selectNoticeList.do"
+        }
+      ],
+      "total": 17
     },
     {
       "id": "result",
@@ -18,10 +25,10 @@
       "icon": "📋",
       "color": "#10b981",
       "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do",
-      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.korec.go.kr/notice/result/selectNoticeList.do\", waiting until \"domcontentloaded\"\n",
+      "error": null,
       "new_count": 0,
       "new_items": [],
-      "total": 0
+      "total": 11
     },
     {
       "id": "eiass_wind",
@@ -29,10 +36,10 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7f183468dd10>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
+      "error": null,
       "new_count": 0,
       "new_items": [],
-      "total": 0
+      "total": 61
     },
     {
       "id": "kepco_notice",
@@ -51,10 +58,10 @@
       "icon": "🍃",
       "color": "#eab308",
       "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
-      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=\", waiting until \"domcontentloaded\"\n",
+      "error": null,
       "new_count": 0,
       "new_items": [],
-      "total": 0
+      "total": 10
     }
   ],
   "metmasts": [
