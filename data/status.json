@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-06-29 09:08:09",
+  "checked_at": "2026-06-29 14:49:32",
   "sites": [
     {
       "id": "notice",
@@ -41,8 +41,15 @@
       "color": "#f97316",
       "url": "https://online.kepco.co.kr/EWM040D00",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "-",
+          "title": "'26년 상반기 전력계통 회수용량 재분배 일정 및 대상 안내('26. 6. 29.)",
+          "date": "2026.06.29",
+          "url": "https://online.kepco.co.kr/EWM040D00"
+        }
+      ],
       "total": 10
     },
     {
