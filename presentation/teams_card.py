@@ -1,7 +1,7 @@
 import os
 
 DASHBOARD_URL  = os.environ.get("DASHBOARD_URL", "https://jung372.github.io/BRE-Workflow-Automation2/")
-MUTED_METMASTS = {"DKAM"}
+MUTED_METMASTS = set()
 
 SITE_DISPLAY = {
     "notice":       "전기위 공지사항",

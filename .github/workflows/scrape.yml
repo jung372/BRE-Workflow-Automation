@@ -45,6 +45,9 @@ jobs:
           METMAST_BLMU_URL: ${{ secrets.METMAST_BLMU_URL }}
           METMAST_BLMU_ID:  ${{ secrets.METMAST_BLMU_ID }}
           METMAST_BLMU_PW:  ${{ secrets.METMAST_BLMU_PW }}
+          METMAST_DKAM_URL: ${{ secrets.METMAST_DKAM_URL }}
+          METMAST_DKAM_ID:  ${{ secrets.METMAST_DKAM_ID }}
+          METMAST_DKAM_PW:  ${{ secrets.METMAST_DKAM_PW }}
         run: python scraper.py
 
       - name: 💾 결과 커밋 & 푸시
