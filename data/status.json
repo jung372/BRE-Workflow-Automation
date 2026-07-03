@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-03 23:25:05",
+  "checked_at": "2026-07-04 00:10:11",
   "sites": [
     {
       "id": "notice",
@@ -29,7 +29,7 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7fbf02b84150>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
+      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7f2a91a968d0>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
       "new_count": 0,
       "new_items": [],
       "total": 0
@@ -41,15 +41,8 @@
       "color": "#f97316",
       "url": "https://online.kepco.co.kr/EWM040D00",
       "error": null,
-      "new_count": 1,
-      "new_items": [
-        {
-          "num": "-",
-          "title": "'26년 상반기 전력계통 회수용량 재분배 일정 및 대상 안내('26. 6. 29.)",
-          "date": "2026.06.29",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        }
-      ],
+      "new_count": 0,
+      "new_items": [],
       "total": 10
     },
     {
