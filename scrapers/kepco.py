@@ -1,5 +1,6 @@
 import logging
 from bs4 import BeautifulSoup
+from scrapers.retry import goto_with_retry
 
 log = logging.getLogger(__name__)
 
@@ -13,7 +14,7 @@ def fetch_kepco(site: dict, p_instance) -> tuple:
             locale="ko-KR",
         )
         page = context.new_page()
-        page.goto(site["url"], wait_until="domcontentloaded", timeout=40000)
+        goto_with_retry(page, site["url"], wait_until="domcontentloaded", timeout=40000)
         try:
             page.wait_for_selector('div[id*="notiRowGroup"]', timeout=20000)
         except Exception:

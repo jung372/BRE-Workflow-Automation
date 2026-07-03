@@ -1,10 +1,16 @@
 import re, logging, requests, urllib3
 from bs4 import BeautifulSoup
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 log = logging.getLogger(__name__)
 
 _BIZ_CODE = re.compile(r"^[A-Z]{2}\d{8}$")
+
+_session = requests.Session()
+_retry   = Retry(total=1, connect=1, read=1, backoff_factor=1.5, status_forcelist=[500, 502, 503, 504])
+_session.mount("https://", HTTPAdapter(max_retries=_retry))
 
 
 def fetch_eiass(site: dict) -> tuple:
@@ -22,7 +28,7 @@ def fetch_eiass(site: dict) -> tuple:
         "currentPage": "1", "sort": "DATE/DESC", "listCount": "100",
     }
     try:
-        resp = requests.post(
+        resp = _session.post(
             "https://www.eiass.go.kr/searchApi/search.do",
             headers=headers, data=data, timeout=30, verify=False,
         )

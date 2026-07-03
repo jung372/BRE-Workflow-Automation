@@ -15,6 +15,7 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
 
     steps:
       - name: 📥 코드 체크아웃
