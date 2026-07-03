@@ -32,5 +32,5 @@ METMASTS = [
     {"id": "SIRU", "name": "SIRU", "env_prefix": "METMAST_SIRU", "url": os.environ.get("METMAST_SIRU_URL", "https://D225107.connect.ammonit.com/")},
     {"id": "GOGK", "name": "GOGK", "env_prefix": "METMAST_GOGK", "url": os.environ.get("METMAST_GOGK_URL", "https://D243097.connect.ammonit.com/")},
     {"id": "BLMU", "name": "BLMU", "env_prefix": "METMAST_BLMU", "url": os.environ.get("METMAST_BLMU_URL", "")},
-    {"id": "DKAM", "name": "DKAM", "env_prefix": "METMAST_DKAM", "url": os.environ.get("METMAST_DKAM_URL", "")},
+    {"id": "DKAM", "name": "DKAM", "env_prefix": "METMAST_DKAM", "url": os.environ.get("METMAST_DKAM_URL", "https://d244024.connect.ammonit.com/")},
 ]

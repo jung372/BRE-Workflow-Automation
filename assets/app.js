@@ -102,7 +102,8 @@ function render(data) {
     const secUrls = {
       'SIRU': 'aHR0cHM6Ly9EMjI1MTA3LmNvbm5lY3QuYW1tb25pdC5jb20v',
       'GOGK': 'aHR0cHM6Ly9EMjQzMDk3LmNvbm5lY3QuYW1tb25pdC5jb20v',
-      'BLMU': 'aHR0cDovL2QyNDMxMDEuY29ubmVjdC5hbW1vbml0LmNvbS8='
+      'BLMU': 'aHR0cDovL2QyNDMxMDEuY29ubmVjdC5hbW1vbml0LmNvbS8=',
+      'DKAM': 'aHR0cHM6Ly9kMjQ0MDI0LmNvbm5lY3QuYW1tb25pdC5jb20v'
     };
 
     let rows = '', onlineCnt = 0;
