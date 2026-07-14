@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-14 11:23:23",
+  "checked_at": "2026-07-14 14:28:28",
   "sites": [
     {
       "id": "notice",
@@ -7,10 +7,10 @@
       "icon": "📢",
       "color": "#3b82f6",
       "url": "https://www.korec.go.kr/notice/selectNoticeList.do",
-      "error": null,
+      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.korec.go.kr/notice/selectNoticeList.do\", waiting until \"domcontentloaded\"\n",
       "new_count": 0,
       "new_items": [],
-      "total": 17
+      "total": 0
     },
     {
       "id": "result",
@@ -18,10 +18,10 @@
       "icon": "📋",
       "color": "#10b981",
       "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do",
-      "error": null,
+      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.korec.go.kr/notice/result/selectNoticeList.do\", waiting until \"domcontentloaded\"\n",
       "new_count": 0,
       "new_items": [],
-      "total": 11
+      "total": 0
     },
     {
       "id": "eiass_wind",
@@ -29,35 +29,10 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": null,
-      "new_count": 3,
-      "new_items": [
-        {
-          "num": "GW20260097",
-          "title": "간성풍력발전 가공 및 지중선로 건설공사",
-          "date": "2026-07-10",
-          "comp_date": "",
-          "status": "본협의(진행)",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        },
-        {
-          "num": "ME20260055",
-          "title": "금양그린 경주풍력발전단지 조성사업",
-          "date": "2026-07-10",
-          "comp_date": "",
-          "status": "",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        },
-        {
-          "num": "ME20230142",
-          "title": "울진군 길곡 주민참여 풍력발전단지 조성사업",
-          "date": "2023-12-06",
-          "comp_date": "2024-07-03",
-          "status": "변경협의(완료)",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        }
-      ],
-      "total": 61
+      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Max retries exceeded with url: /searchApi/search.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.eiass.go.kr', port=443) at 0x7feaa6c17d90>, 'Connection to www.eiass.go.kr timed out. (connect timeout=30)'))",
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
     },
     {
       "id": "kepco_notice",
@@ -76,23 +51,10 @@
       "icon": "🍃",
       "color": "#eab308",
       "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
-      "error": null,
-      "new_count": 2,
-      "new_items": [
-        {
-          "num": "708",
-          "title": "[공고 제2026-131호] 생태·자연도(生態 自然圖) 수시고시(안) 국...NEW",
-          "date": "2026-07-10",
-          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
-        },
-        {
-          "num": "707",
-          "title": "[공고 제2026-130호] 생태·자연도(生態 自然圖) 수시고시(안) 국...NEW",
-          "date": "2026-07-10",
-          "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword="
-        }
-      ],
-      "total": 10
+      "error": "Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=\", waiting until \"domcontentloaded\"\n",
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
     }
   ],
   "metmasts": [
