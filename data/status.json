@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-17 00:00:42",
+  "checked_at": "2026-07-17 01:25:30",
   "sites": [
     {
       "id": "notice",
@@ -120,7 +120,7 @@
     {
       "id": "DKAM",
       "name": "DKAM",
-      "status": "Offline"
+      "status": "Online"
     }
   ],
   "is_updating": false
