@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-19 07:11:33",
+  "checked_at": "2026-07-19 07:13:07",
   "sites": [
     {
       "id": "notice",
@@ -93,17 +93,17 @@
     {
       "id": "GOGK",
       "name": "GOGK",
-      "status": "Offline"
+      "status": "Online"
     },
     {
       "id": "BLMU",
       "name": "BLMU",
-      "status": "Offline"
+      "status": "Online"
     },
     {
       "id": "DKAM",
       "name": "DKAM",
-      "status": "Offline"
+      "status": "Online"
     }
   ],
   "is_updating": false
