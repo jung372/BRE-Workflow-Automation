@@ -88,56 +88,55 @@ function render(data) {
 
   if (totalNew > 0) showToast(`✨ 총 ${totalNew}건의 새 게시글이 감지되었습니다!`, 4000);
 
-  // 풍황계측기 목업 카드
-  if (!document.getElementById('card-metmast')) {
-    const mockCard = document.createElement('div');
+  // 풍황계측기 카드
+  const mData = data.metmasts || [
+    { name: 'SIRU', status: 'Offline' }, { name: 'GOGK', status: 'Offline' },
+    { name: 'BLMU', status: 'Offline' }, { name: 'DKAM', status: 'Offline' }
+  ];
+  let rows = '', onlineCnt = 0;
+  mData.forEach((m, idx) => {
+    const isOnline = m.status === 'Online';
+    if (isOnline) onlineCnt++;
+    const color = isOnline ? 'var(--green)' : 'var(--red)';
+    const pulse = isOnline ? `animation:pulse 2s infinite;animation-delay:${idx * 0.5}s;` : '';
+    const link  = m.url || '#';
+    rows += `
+      <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.3);padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);">
+        <div style="font-size:14px;font-weight:700;color:#fff;letter-spacing:1px;">${m.name}</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:11px;font-weight:600;color:${color};">${m.status}</span>
+          <div style="width:10px;height:10px;border-radius:50%;background:${color};box-shadow:0 0 8px ${color};${pulse}"></div>
+          <a class="visit-link" href="${link}" target="_blank" rel="noopener" style="padding:4px 10px;font-size:11px;">접속</a>
+        </div>
+      </div>`;
+  });
+
+  const metmastInner = `
+    <div class="new-count-wrap" style="padding:10px 14px;margin-bottom:0;background:transparent;border:none;">
+      <div style="display:flex;flex-direction:column;gap:6px;">${rows}</div>
+    </div>
+    <div class="card-footer" style="margin-top:2px;">
+      <div class="total-count">현재 접속 가능 기기: ${onlineCnt}/${mData.length}대</div>
+    </div>`;
+
+  let mockCard = document.getElementById('card-metmast');
+  if (!mockCard) {
+    mockCard = document.createElement('div');
     mockCard.className = 'card';
     mockCard.id = 'card-metmast';
     mockCard.setAttribute('data-id', 'metmast');
-
-    const mData = data.metmasts || [
-      { name: 'SIRU', status: 'Offline' }, { name: 'GOGK', status: 'Offline' },
-      { name: 'BLMU', status: 'Offline' }, { name: 'DKAM', status: 'Offline' }
-    ];
-    const secUrls = {
-      'SIRU': 'aHR0cHM6Ly9kMjE1MDI3LmNvbm5lY3QuYW1tb25pdC5jb20v',
-      'GOGK': 'aHR0cHM6Ly9EMjQzMDk3LmNvbm5lY3QuYW1tb25pdC5jb20v',
-      'BLMU': 'aHR0cDovL2QyNDMxMDEuY29ubmVjdC5hbW1vbml0LmNvbS8=',
-      'DKAM': 'aHR0cHM6Ly9kMjQ0MDI0LmNvbm5lY3QuYW1tb25pdC5jb20v'
-    };
-
-    let rows = '', onlineCnt = 0;
-    mData.forEach((m, idx) => {
-      const isOnline = m.status === 'Online';
-      if (isOnline) onlineCnt++;
-      const color = isOnline ? 'var(--green)' : 'var(--red)';
-      const pulse = isOnline ? `animation:pulse 2s infinite;animation-delay:${idx * 0.5}s;` : '';
-      const link  = secUrls[m.name] ? atob(secUrls[m.name]) : '#';
-      rows += `
-        <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.3);padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);">
-          <div style="font-size:14px;font-weight:700;color:#fff;letter-spacing:1px;">${m.name}</div>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span style="font-size:11px;font-weight:600;color:${color};">${m.status}</span>
-            <div style="width:10px;height:10px;border-radius:50%;background:${color};box-shadow:0 0 8px ${color};${pulse}"></div>
-            <a class="visit-link" href="${link}" target="_blank" rel="noopener" style="padding:4px 10px;font-size:11px;">접속</a>
-          </div>
-        </div>`;
-    });
-
     mockCard.innerHTML = `
       <div class="card-header" style="margin-bottom:8px;padding-bottom:8px;">
         <div style="display:flex;align-items:center;gap:12px;">
           <div class="card-icon" style="margin-bottom:0;font-size:36px;">📡</div>
           <div><div class="card-name">풍황계측기 모니터링</div></div>
         </div>
-      </div>
-      <div class="new-count-wrap" style="padding:10px 14px;margin-bottom:0;background:transparent;border:none;">
-        <div style="display:flex;flex-direction:column;gap:6px;">${rows}</div>
-      </div>
-      <div class="card-footer" style="margin-top:2px;">
-        <div class="total-count" id="total-metmast">현재 접속 가능 기기: ${onlineCnt}/${mData.length}대</div>
-      </div>`;
+      </div>` + metmastInner;
     container.appendChild(mockCard);
+  } else {
+    mockCard.querySelector('.new-count-wrap').outerHTML;
+    const header = mockCard.querySelector('.card-header');
+    mockCard.innerHTML = header.outerHTML + metmastInner;
   }
 }
 

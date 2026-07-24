@@ -31,6 +31,7 @@ def run() -> dict:
         for m in METMASTS:
             log.info(f"[MetMast] {m['name']} 상태 확인 중...")
             status = check_metmast(m, p)
+            status["url"] = m["url"]
             results["metmasts"].append(status)
             log.info(f" → {status['status']}")
 
