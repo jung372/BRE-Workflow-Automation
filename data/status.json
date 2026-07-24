@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-24 13:54:10",
+  "checked_at": "2026-07-24 14:00:34",
   "sites": [
     {
       "id": "notice",
@@ -99,22 +99,26 @@
     {
       "id": "SIRU",
       "name": "SIRU",
-      "status": "Online"
+      "status": "Online",
+      "url": "https://d215027.connect.ammonit.com/"
     },
     {
       "id": "GOGK",
       "name": "GOGK",
-      "status": "Online"
+      "status": "Online",
+      "url": "https://D243097.connect.ammonit.com/"
     },
     {
       "id": "BLMU",
       "name": "BLMU",
-      "status": "Online"
+      "status": "Online",
+      "url": "http://d243101.connect.ammonit.com/"
     },
     {
       "id": "DKAM",
       "name": "DKAM",
-      "status": "Online"
+      "status": "Online",
+      "url": "https://d244024.connect.ammonit.com/"
     }
   ],
   "is_updating": false
