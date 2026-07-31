@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-31 14:00:03",
+  "checked_at": "2026-07-31 15:00:07",
   "sites": [
     {
       "id": "notice",
@@ -30,8 +30,16 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 2,
+      "new_count": 3,
       "new_items": [
+        {
+          "num": "ME20260091",
+          "title": "영월 접산 풍력발전단지 조성사업(변경협의 2차)",
+          "date": "2026-07-31",
+          "comp_date": "",
+          "status": "변경협의(진행)",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        },
         {
           "num": "ME20260088",
           "title": "경주 왕신풍력발전단지 조성사업",
