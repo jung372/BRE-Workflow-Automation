@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-04 10:00:03",
+  "checked_at": "2026-08-04 11:00:02",
   "sites": [
     {
       "id": "notice",
@@ -19,8 +19,15 @@
       "color": "#10b981",
       "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "공지",
+          "title": "제326차 전기위원회 개최 결과",
+          "date": "2026-08-04",
+          "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do"
+        }
+      ],
       "total": 11
     },
     {
