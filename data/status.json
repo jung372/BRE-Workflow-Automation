@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-05 19:00:05",
+  "checked_at": "2026-08-05 20:00:02",
   "sites": [
     {
       "id": "notice",
@@ -37,8 +37,17 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "ME20260055",
+          "title": "금양그린 경주풍력발전단지 조성사업",
+          "date": "2026-07-10",
+          "comp_date": "2026-08-05",
+          "status": "",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        }
+      ],
       "total": 61
     },
     {
