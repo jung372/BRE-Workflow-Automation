@@ -4,6 +4,7 @@ from playwright.sync_api import sync_playwright
 
 from config  import SITES, METMASTS
 from state   import load_state, save_state, get_baseline_ids, update_site_state, item_id
+from keywords          import load_keywords
 from runtime_config    import get_status_file
 from scrapers          import fetch_site
 from scrapers.metmast  import check_metmast
@@ -13,6 +14,14 @@ OUTPUT   = str(get_status_file())
 DATA_DIR = os.path.dirname(OUTPUT)
 
 log = logging.getLogger(__name__)
+
+
+def _site_extras(site: dict) -> dict:
+    """대시보드가 카드에 곁들여 표시할 사이트별 부가 정보."""
+    if site.get("type") == "openportal":
+        # 감시 중인 키워드를 칩으로 보여주기 위해 현재 설정을 함께 싣는다.
+        return {"keywords": list(load_keywords().keywords)}
+    return {}
 
 
 def run() -> dict:
@@ -45,6 +54,7 @@ def run() -> dict:
                     "icon": site["icon"], "color": site["color"],
                     "url": site["url"], "error": err or "데이터 수집 실패",
                     "new_count": 0, "new_items": [], "total": 0,
+                    **_site_extras(site),
                 })
                 continue
 
@@ -61,6 +71,7 @@ def run() -> dict:
                 "new_count": len(new_items),
                 "new_items": new_items[:10],
                 "total":     len(current),
+                **_site_extras(site),
             })
             log.info(f"[{site['name']}] 신규 {len(new_items)}건 / 전체 {len(current)}건")
 

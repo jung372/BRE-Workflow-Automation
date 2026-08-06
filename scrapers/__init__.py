@@ -1,6 +1,7 @@
-from .general import fetch_general
-from .eiass   import fetch_eiass
-from .kepco   import fetch_kepco
+from .general     import fetch_general
+from .eiass       import fetch_eiass
+from .kepco       import fetch_kepco
+from .open_portal import fetch_open_portal
 
 
 def fetch_site(site: dict, p_instance) -> tuple:
@@ -10,4 +11,6 @@ def fetch_site(site: dict, p_instance) -> tuple:
         return fetch_eiass(site)
     if t == "kepco":
         return fetch_kepco(site, p_instance)
+    if t == "openportal":
+        return fetch_open_portal(site, p_instance)
     return fetch_general(site, p_instance)

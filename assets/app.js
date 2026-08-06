@@ -1,7 +1,43 @@
 const DATA_URL         = 'data/status.json';
 const AUTO_REFRESH_SEC = 300;
+const KW_COLLAPSED_MAX = 2;   // 접힌 상태에서 보여줄 칩 개수
 let countdown  = AUTO_REFRESH_SEC;
 let autoTimer, countdownTimer;
+
+// 칩 펼침 상태는 카드 밖에 보관한다. render()가 5분마다 호출되므로 DOM에만
+// 두면 자동 갱신마다 접혀버린다.
+function kwExpanded(id) {
+  try { return localStorage.getItem('kwExpanded:' + id) === '1'; } catch(e) { return false; }
+}
+function setKwExpanded(id, on) {
+  try { localStorage.setItem('kwExpanded:' + id, on ? '1' : '0'); } catch(e) {}
+}
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function toggleKeywords(id) {
+  setKwExpanded(id, !kwExpanded(id));
+  const host = document.getElementById('kw-' + id);
+  if (host) host.innerHTML = keywordChips(id, JSON.parse(host.dataset.keywords || '[]'));
+}
+
+// 카드 헤더는 최초 1회만 생성되므로, 키워드가 서버에서 바뀌어도 반영되지
+// 않는다. 그래서 칩 영역만 별도 요소로 두고 매 렌더마다 다시 그린다.
+function keywordChips(id, keywords) {
+  if (!keywords || !keywords.length) return '';
+  const expanded = kwExpanded(id);
+  const shown    = expanded ? keywords : keywords.slice(0, KW_COLLAPSED_MAX);
+  const hidden   = keywords.length - shown.length;
+  const chips    = shown.map(k => `<span class="kw-chip">${escapeHtml(k)}</span>`).join('');
+  const label    = expanded ? '▴' : (hidden > 0 ? `+${hidden} ▾` : '▾');
+  return `${chips}<button type="button" class="kw-toggle" aria-expanded="${expanded}"
+      title="감시 키워드 ${keywords.length}개: ${escapeHtml(keywords.join(', '))}"
+      onclick="toggleKeywords('${id}')">${label}</button>`;
+}
 
 async function loadData() {
   setBtnLoading(true);
@@ -19,7 +55,7 @@ async function loadData() {
 function refresh() { resetAutoTimer(); loadData(); }
 
 function render(data) {
-  ['skel1','skel2','skel3','skel4','skel5'].forEach(id => {
+  ['skel1','skel2','skel3','skel4','skel5','skel6'].forEach(id => {
     const el = document.getElementById(id); if (el) el.remove();
   });
 
@@ -49,6 +85,7 @@ function render(data) {
             <div>
               <div class="card-name">${site.name}</div>
               <div class="card-url">${hostname}</div>
+              <div class="kw-wrap" id="kw-${site.id}"></div>
             </div>
           </div>
         </div>
@@ -66,6 +103,14 @@ function render(data) {
           </a>
         </div>`;
       container.appendChild(card);
+    }
+
+    // 키워드가 바뀌어도 반영되도록 칩 영역은 매 렌더마다 다시 그린다.
+    const kwHost = document.getElementById(`kw-${site.id}`);
+    if (kwHost) {
+      const kws = site.keywords || [];
+      kwHost.dataset.keywords = JSON.stringify(kws);
+      kwHost.innerHTML = keywordChips(site.id, kws);
     }
 
     const hasNew       = site.new_count > 0;
@@ -144,14 +189,23 @@ function renderItems(site) {
   if (site.new_count === 0)
     return `<div class="no-new-msg"><span style="font-size:18px;">✅</span> 새 게시글 없음</div>`;
   const items = (site.new_items || []).slice(0, 5);
-  const rows  = items.map((item, i) => `
+  const rows  = items.map((item, i) => {
+    // 발송처와 매칭 키워드는 기존 날짜와 같은 줄에 붙여 높이를 늘리지 않는다.
+    const meta = [
+      item.dept ? escapeHtml(item.dept) : '',
+      item.date || '',
+    ].filter(Boolean).join(' · ');
+    const badge = item.keyword
+      ? `<span class="kw-badge">${escapeHtml(item.keyword)}</span>` : '';
+    return `
     <div class="new-item" style="animation-delay:${i * 0.05}s">
       <div class="new-item-dot"></div>
       <div>
         <a href="${item.url || site.url}" target="_blank" rel="noopener">${item.title}</a>
-        <div class="new-item-date">${item.date || ''}</div>
+        <div class="new-item-date">${meta}${badge}</div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
   return `<div class="new-items">${rows}
     ${site.new_count > items.length
       ? `<div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:10px;text-align:right;">외 ${site.new_count - items.length}건 더보기 →</div>`

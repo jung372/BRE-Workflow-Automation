@@ -10,6 +10,9 @@ on:
       - 'last_state.json'
       - 'docs/**'
       - '**/*.md'
+      # 키워드는 설정 데이터다. publish clone 에서 읽으므로 재배포가 필요 없고,
+      # 검증은 validate-keywords.yml 이 담당한다.
+      - 'config/keywords.json'
   workflow_dispatch:
 
 env:
@@ -47,7 +50,7 @@ jobs:
         shell: pwsh
         run: |
           python -m compileall -q `
-            config.py state.py runtime_config.py scraper.py run_local.py `
+            config.py state.py runtime_config.py keywords.py scraper.py run_local.py `
             notify_teams.py push_to_github.py dashboard_app.py `
             logic scrapers presentation tests
 

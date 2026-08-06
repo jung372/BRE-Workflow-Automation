@@ -174,6 +174,7 @@ h1 {
 .card[data-id="eiass_wind"]::before   { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
 .card[data-id="news"]::before         { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
 .card[data-id="metmast"]::before      { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+.card[data-id="open_portal"]::before  { background: linear-gradient(90deg, #a855f7, #c084fc); }
 
 /* 카드 정렬 순서 */
 .card[data-id="metmast"]      { order: 1; }
@@ -182,12 +183,45 @@ h1 {
 .card[data-id="kepco_notice"] { order: 4; }
 .card[data-id="eiass_wind"]   { order: 5; }
 .card[data-id="nie_notice"]   { order: 6; }
+.card[data-id="open_portal"]  { order: 7; }
 .card                          { order: 99; }
 
 .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 24px; }
 .card-icon { font-size: 36px; line-height: 1; margin-bottom: 12px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
 .card-name { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
 .card-url  { font-size: 13px; color: var(--text-muted); opacity: 0.8; }
+
+/* ── 감시 키워드 칩 (정보공개 청구 카드) ── */
+.kw-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 6px; }
+.kw-wrap:empty { display: none; }
+.kw-chip {
+  font-size: 11px; font-weight: 600; line-height: 1.6;
+  color: #e9d5ff;
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  padding: 1px 8px; border-radius: 999px;
+  white-space: nowrap;
+}
+.kw-toggle {
+  font-size: 11px; font-weight: 700;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 1px 7px; border-radius: 999px;
+  cursor: pointer; transition: all .2s;
+}
+.kw-toggle:hover { background: rgba(255,255,255,0.18); color: var(--text); }
+
+/* 항목별 매칭 키워드 배지 — 날짜와 같은 줄에 놓아 높이를 늘리지 않는다 */
+.kw-badge {
+  display: inline-block; margin-left: 6px;
+  font-size: 10px; font-weight: 600;
+  color: #e9d5ff;
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 0 6px; border-radius: 999px;
+  vertical-align: 1px;
+}
 
 .new-count-wrap { margin-bottom: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
 .new-count-label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }

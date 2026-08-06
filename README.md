@@ -155,6 +155,50 @@ gh workflow run ci-deploy.yml --ref main
 코드도 배포에 실패하기 때문입니다. 저장소 변수 `BRE_SMOKE_MIN_OK` 로 조정할 수
 있습니다.
 
+## 정보공개 청구 감시 키워드 편집
+
+"정보공개 청구" 카드는 [정보공개포털](https://www.open.go.kr/)의 **정보목록**을
+사업명 키워드로 조회합니다. 키워드는 코드가 아니라 설정 데이터이므로 웹에서
+직접 고칩니다.
+
+[config/keywords.json 편집하기](https://github.com/jung372/BRE-Workflow-Automation2/edit/main/config/keywords.json)
+
+```json
+{
+  "keywords": ["시루풍력", "왕신풍력", "해파랑육상풍력"],
+  "window_days": 90,
+  "row_page": 100
+}
+```
+
+- **반영 시점: 다음 정시 실행(최대 1시간).** 재배포가 필요 없습니다. 서버의
+  `publish` clone 이 스크래핑 직전에 `git pull` 하므로 자동으로 도달합니다.
+- 커밋할 수 있는 사람은 저장소 write 권한 보유자뿐입니다. 권한이 없는 사용자가
+  웹 편집기로 고치면 GitHub 이 자동으로 fork + PR 로 돌립니다.
+- 저장 시 `키워드 설정 검증` 워크플로가 20초 내에 형식을 확인합니다. 실패하면
+  GitHub 에 실패 표시가 남고, 서버는 잘못된 설정을 무시하고 기본값으로
+  동작합니다(수집이 멈추지 않습니다).
+
+### 키워드는 사업 전체명을 쓰세요
+
+짧은 키워드는 무관한 결과가 폭증합니다. 실측값입니다.
+
+| 키워드 | 조회 건수 | 판정 |
+|---|---|---|
+| 시루풍력 | 39 | 적정 |
+| 시루 | 18,928 | 사용 불가 (시흥 지역화폐, 단양 시루섬 등) |
+| 왕신풍력 | 63 | 적정 |
+| 왕신 | 10,859 | 사용 불가 (왕신지구 수리시설 등) |
+
+그래서 검증 규칙이 **3자 이상, 최대 20개, 중복 불가**입니다. 조회 결과가 500건을
+넘으면 로그에 경고가 남습니다.
+
+로컬에서 미리 검증할 수 있습니다.
+
+```powershell
+python keywords.py config/keywords.json
+```
+
 ## 환경변수
 
 | 변수 | 설정 위치 | 용도 |
@@ -202,6 +246,8 @@ Get-Content "D:\05 AI Study\BRE_Workflow_runtime\logs\run_local.log" -Tail 50
 ```
 config.py             사이트·계측기 정의, 프록시 설정
 runtime_config.py     데이터·런타임·환경파일 경로 해석
+keywords.py           정보공개 청구 키워드 로딩·검증 (CI 검증 CLI 포함)
+config/keywords.json  감시 키워드 설정 (웹에서 편집)
 state.py              스냅샷 상태 DB 입출력
 scraper.py            스크래핑만 수행하는 최소 진입점
 run_local.py          서버 예약 작업 진입점 (락·스모크·발행)

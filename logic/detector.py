@@ -31,6 +31,9 @@ def get_new_items(state: dict, site_display: dict) -> tuple:
                     "title":     item.get("title", ""),
                     "date":      item.get("date", ""),
                     "url":       item.get("url", "#"),
+                    # 정보공개 청구 항목만 값을 가진다. 나머지는 빈 문자열.
+                    "dept":      item.get("dept", ""),
+                    "keyword":   item.get("keyword", ""),
                 })
 
     return all_new, today_key, prev_key
