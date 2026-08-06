@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-06 18:00:04",
+  "checked_at": "2026-08-06 19:00:04",
   "sites": [
     {
       "id": "notice",
@@ -71,6 +71,22 @@
       "new_count": 0,
       "new_items": [],
       "total": 10
+    },
+    {
+      "id": "open_portal",
+      "name": "정보공개 청구",
+      "icon": "📄",
+      "color": "#a855f7",
+      "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
+      "error": null,
+      "new_count": 0,
+      "new_items": [],
+      "total": 30,
+      "keywords": [
+        "시루풍력",
+        "왕신풍력",
+        "해파랑육상풍력"
+      ]
     }
   ],
   "metmasts": [
