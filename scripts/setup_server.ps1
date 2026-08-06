@@ -6,7 +6,8 @@ param(
     [string]$RepositoryUrl = 'https://github.com/jung372/BRE-Workflow-Automation2.git',
     [string]$TaskName = 'BRE Scraper',
     [string]$StartTime = '06:00',
-    [int]$RepeatHours = 14
+    [int]$RepeatHours = 14,
+    [switch]$ForceDeploy
 )
 
 $ErrorActionPreference = 'Stop'
@@ -68,7 +69,7 @@ foreach ($key in $RequiredEnvKeys) {
         $missing += $key
     }
 }
-if ($missing.Count -gt 0) {
+if (@($missing).Count -gt 0) {
     Write-Warning "환경파일에 값이 비어 있습니다: $($missing -join ', ')"
     Write-Warning "실제 값을 입력한 뒤 다시 실행하세요: $envPath"
     exit 2
@@ -112,15 +113,39 @@ if (Test-Path -LiteralPath $legacyState) {
 }
 
 # --- 3. 초기 배포 --------------------------------------------------------
-$deployScript = Join-Path $resolvedSource 'scripts\deploy_server.ps1'
-Write-Host '[SETUP] 초기 배포 실행 (스모크 생략)'
-& $deployScript `
-    -SourcePath $resolvedSource `
-    -InstallRoot $resolvedInstallRoot `
-    -RuntimeRoot $resolvedRuntimeRoot `
-    -TaskName $TaskName `
-    -CommitSha 'initial' `
-    -SkipSmoke
+# 이 스크립트는 .env 입력 때문에 여러 번 실행되도록 설계됐다(값이 비면 exit 2).
+# 이미 유효한 릴리스가 있으면 재빌드해서 쓰레기 릴리스를 쌓지 않는다.
+$pointerPath = Join-Path $resolvedInstallRoot 'current_release.txt'
+$needsDeploy = $true
+if (-not $ForceDeploy -and (Test-Path -LiteralPath $pointerPath)) {
+    $existingRelease = (Get-Content -LiteralPath $pointerPath -Raw).Trim()
+    $existingPython = if ($existingRelease) {
+        Join-Path $existingRelease '.venv\Scripts\python.exe'
+    }
+    else {
+        $null
+    }
+    if ($existingPython -and (Test-Path -LiteralPath $existingPython)) {
+        Write-Host "[SETUP] 유효한 릴리스가 이미 있어 초기 배포를 건너뜁니다: $existingRelease"
+        Write-Host '[SETUP] 다시 빌드하려면 -ForceDeploy 를 지정하세요.'
+        $needsDeploy = $false
+    }
+}
+
+if ($needsDeploy) {
+    $deployScript = Join-Path $resolvedSource 'scripts\deploy_server.ps1'
+    Write-Host '[SETUP] 초기 배포 실행 (스모크 생략)'
+    & $deployScript `
+        -SourcePath $resolvedSource `
+        -InstallRoot $resolvedInstallRoot `
+        -RuntimeRoot $resolvedRuntimeRoot `
+        -TaskName $TaskName `
+        -CommitSha 'initial' `
+        -SkipSmoke
+    if ($LASTEXITCODE -and $LASTEXITCODE -ne 0) {
+        throw "초기 배포 실패 (exit $LASTEXITCODE)"
+    }
+}
 
 # --- 4. 예약 작업 --------------------------------------------------------
 # Teams 발송은 GitHub Actions(report.yml)에 그대로 두므로 작업은 하나만 등록한다.
