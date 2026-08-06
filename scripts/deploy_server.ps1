@@ -84,9 +84,14 @@ function Invoke-RobocopyChecked {
 function Remove-OldReleases {
     param([string]$ReleasesRoot, [string]$KeepPath, [int]$Keep)
 
-    $all = Get-ChildItem -LiteralPath $ReleasesRoot -Directory -ErrorAction SilentlyContinue |
-        Sort-Object Name -Descending
-    if (-not $all -or $all.Count -le $Keep) {
+    # @() 로 감싸지 않으면 릴리스가 1개일 때 파이프라인이 배열이 아닌 단일
+    # DirectoryInfo 를 반환하고, StrictMode 에서 .Count 접근이 예외를 던진다.
+    # 첫 배포에서 항상 재현되는 조건이다.
+    $all = @(
+        Get-ChildItem -LiteralPath $ReleasesRoot -Directory -ErrorAction SilentlyContinue |
+            Sort-Object Name -Descending
+    )
+    if ($all.Count -le $Keep) {
         return
     }
 
@@ -223,7 +228,14 @@ try {
     Set-Content -LiteralPath (Join-Path $resolvedRuntimeRoot 'deployment.json') `
         -Value $deploymentRecord -Encoding utf8
 
-    Remove-OldReleases -ReleasesRoot $releasesRoot -KeepPath $releasePath -Keep $KeepReleases
+    # 디스크 정리는 배포 성공 여부와 무관하다. 여기서 실패해도 이미 검증을
+    # 통과하고 포인터까지 전환된 배포를 무효로 만들지 않는다.
+    try {
+        Remove-OldReleases -ReleasesRoot $releasesRoot -KeepPath $releasePath -Keep $KeepReleases
+    }
+    catch {
+        Write-Warning "[DEPLOY] 오래된 릴리스 정리 실패(배포는 정상): $($_.Exception.Message)"
+    }
 
     Write-Step "배포 완료: $releasePath"
     Write-Step "다음 정시 실행부터 새 릴리스가 사용됩니다. publish clone: $publishPath"
