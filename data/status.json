@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-06 20:00:03",
+  "checked_at": "2026-08-07 06:00:09",
   "sites": [
     {
       "id": "notice",
@@ -37,8 +37,16 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 1,
+      "new_count": 2,
       "new_items": [
+        {
+          "num": "ME20260091",
+          "title": "영월 접산 풍력발전단지 조성사업(변경협의 2차)",
+          "date": "2026-07-31",
+          "comp_date": "2026-08-06",
+          "status": "변경협의(완료)",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        },
         {
           "num": "ME20260055",
           "title": "금양그린 경주풍력발전단지 조성사업",
@@ -96,7 +104,7 @@
     {
       "id": "SIRU",
       "name": "SIRU",
-      "status": "Online",
+      "status": "Offline",
       "url": "https://d215027.connect.ammonit.com/"
     },
     {
