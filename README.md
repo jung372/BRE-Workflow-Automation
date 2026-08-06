@@ -137,6 +137,19 @@ gh variable set SERVER_DEPLOY_ENABLED --body true
 
 검증 단계에서 실패하면 포인터를 옮기지 않으므로 이전 릴리스가 그대로 유지됩니다.
 
+`data/status.json`, `last_state.json`, `docs/**`, `**/*.md` 변경은 배포를 트리거하지
+않습니다(`paths-ignore`). 서버의 데이터 push 가 배포를 되돌려 부르지 않게 하기
+위한 것이며, 문서만 고친 push 도 배포되지 않습니다. 문서 수정 후 배포가 필요하면
+Actions 탭에서 수동 실행하세요.
+
+```powershell
+gh workflow run ci-deploy.yml --ref main
+```
+
+> **빈 commit 으로는 파이프라인을 검증할 수 없습니다.** 변경 파일이 0개면
+> `paths-ignore` 조건이 성립해 GitHub 이 실행을 건너뜁니다. 검증에는 무시
+> 대상이 아닌 파일 변경이 포함되어야 하거나 수동 실행을 써야 합니다.
+
 스모크 통과 기준은 "오류 없이 수집된 사이트 수 ≥ 3"(전체 5개)입니다. 정부
 사이트(KOREC·NIE·EIASS)가 간헐적으로 타임아웃되므로 전체 성공을 요구하면 정상
 코드도 배포에 실패하기 때문입니다. 저장소 변수 `BRE_SMOKE_MIN_OK` 로 조정할 수

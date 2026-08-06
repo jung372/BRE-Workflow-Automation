@@ -296,9 +296,20 @@ git add -A; git commit -m "..."; git push -u origin feature/작업이름
 4. 서버 PC: 기존 `BRE-Scraper` 예약 작업 중지 → `last_state.json` 백업 → `setup_server.ps1` 실행 → `.env` 실제 값 입력 → 재실행
 5. 서버 PC: `setup_github_runner.ps1` 실행 (관리자 PowerShell)
 6. 저장소 변수 `SERVER_DEPLOY_ENABLED=true` 설정
-7. 빈 commit push로 전체 파이프라인 1회 검증
+7. 코드 파일이 포함된 commit 을 push 해 전체 파이프라인 1회 검증
 8. `doctor.ps1` 통과 확인
 9. 다음 평일 08:30 `report.yml` 실행 결과 확인 (Teams 수신)
+
+> **`paths-ignore` 의 두 가지 함의.**
+> ① **빈 commit 으로는 검증할 수 없다.** 변경 파일이 0개면 "모든 변경 파일이
+> 무시 패턴에 해당"하는 조건이 성립해 GitHub 이 실행을 건너뛴다. 검증에는
+> 반드시 무시 대상이 아닌 파일 변경이 포함되어야 한다.
+> ② **문서만 고친 push 는 배포되지 않는다.** `docs/**` 와 `**/*.md` 를 무시
+> 목록에 넣었으므로 의도된 동작이다. 문서 수정 후 배포가 필요하면
+> `workflow_dispatch` 로 수동 실행한다.
+>
+> 또한 **워크플로 파일을 처음 추가한 push 자체는 트리거되지 않는다.**
+> 도입 직후에는 `workflow_dispatch` 로 1회 확인하는 것이 확실하다.
 
 `report.yml`과 `.gitignore`는 손대지 않으므로 Teams 발송 경로는 마이그레이션 전 구간에서 중단 없이 유지된다.
 
