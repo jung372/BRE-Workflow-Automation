@@ -1,0 +1,15 @@
+# PowerShell 스크립트는 Windows 기본인 CRLF 로 고정한다.
+# UTF-8 BOM 과 함께, Windows PowerShell 5.1 이 한글이 든 .ps1 을 올바로
+# 읽기 위한 조건이다. BOM 이 없으면 5.1 은 시스템 ANSI 코드페이지로 읽어
+# 문자열 종결자가 깨지고 파스 에러가 발생한다.
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+
+# 바이너리는 EOL 정규화 대상에서 제외한다.
+*.png binary
+*.xlsx binary
+*.pdf binary
+*.zip binary
+
+# 대용량 데이터 파일의 diff 출력을 줄인다.
+last_state.json -diff
