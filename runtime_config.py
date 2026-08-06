@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import os
+import sys
 from pathlib import Path
 
 try:
@@ -27,6 +28,21 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 
 def _expanded_path(raw: str) -> Path:
     return Path(os.path.expandvars(os.path.expanduser(raw))).resolve()
+
+
+def ensure_utf8_stdout() -> None:
+    """콘솔 코드페이지가 한글을 담지 못해도 죽지 않게 한다.
+
+    GitHub windows-latest 러너의 stdout 은 cp1252 라서 한글을 print 하면
+    UnicodeEncodeError 로 프로세스가 죽는다. 사이트명·키워드 값 자체가
+    한글이므로 메시지를 ASCII 로 바꾸는 것으로는 해결되지 않는다.
+    errors='replace' 를 둬서 최악의 경우에도 죽지 않고 물음표로 대체한다.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, OSError, ValueError):
+            pass
 
 
 def get_data_dir() -> Path:
