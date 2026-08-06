@@ -1,6 +1,7 @@
 import logging
 from bs4 import BeautifulSoup
 from scrapers.retry import goto_with_retry
+from config import GOTO_TIMEOUT, playwright_proxy
 
 log = logging.getLogger(__name__)
 
@@ -8,13 +9,19 @@ log = logging.getLogger(__name__)
 def fetch_general(site: dict, p_instance) -> tuple:
     """Playwright 기반 일반 테이블 파서 (KOREC, NIE 등 공통)."""
     try:
-        browser = p_instance.chromium.launch(headless=True)
+        launch_kwargs = {"headless": True}
+        if site.get("proxy"):
+            proxy = playwright_proxy()
+            if proxy:
+                launch_kwargs["proxy"] = proxy
+        browser = p_instance.chromium.launch(**launch_kwargs)
         context = browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
             locale="ko-KR",
+            extra_http_headers={"Accept-Language": "ko-KR,ko;q=0.9"},
         )
         page = context.new_page()
-        goto_with_retry(page, site["url"], wait_until="domcontentloaded", timeout=40000)
+        goto_with_retry(page, site["url"], wait_until="domcontentloaded", timeout=GOTO_TIMEOUT)
         try:
             page.wait_for_selector("tbody tr", timeout=20000)
         except Exception:

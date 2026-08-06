@@ -1,6 +1,7 @@
 import os, logging
 from bs4 import BeautifulSoup
 from scrapers.retry import goto_with_retry
+from config import GOTO_TIMEOUT
 
 log = logging.getLogger(__name__)
 
@@ -20,7 +21,7 @@ def check_metmast(m: dict, p_instance) -> dict:
         browser = p_instance.chromium.launch(headless=True)
         context = browser.new_context(ignore_https_errors=True)
         page    = context.new_page()
-        goto_with_retry(page, url, timeout=40000, wait_until="load")
+        goto_with_retry(page, url, timeout=GOTO_TIMEOUT, wait_until="load")
 
         try:
             page.wait_for_selector('input[name="access"], input[type="password"]', timeout=10000)
