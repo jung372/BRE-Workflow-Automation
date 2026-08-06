@@ -18,7 +18,16 @@ import sys
 import time
 from pathlib import Path
 
-from runtime_config import get_log_dir, get_runtime_dir, load_app_environment
+from runtime_config import (
+    ensure_utf8_stdout,
+    get_log_dir,
+    get_runtime_dir,
+    load_app_environment,
+)
+
+# 로그 메시지가 한글이다. 콘솔 코드페이지가 한글을 못 담으면 StreamHandler 가
+# UnicodeEncodeError 로 죽는다(영문 로케일 Windows). 로깅 설정 전에 처리한다.
+ensure_utf8_stdout()
 
 # 스모크는 실제 데이터를 오염시키지 않도록 경로를 먼저 격리해야 한다.
 # state.py / logic.runner 는 import 시점에 경로를 확정하므로 그 전에 처리한다.

@@ -18,7 +18,7 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from runtime_config import get_keywords_file
+from runtime_config import ensure_utf8_stdout, get_keywords_file
 
 DEFAULT_KEYWORDS = ("시루풍력", "왕신풍력", "해파랑육상풍력")
 DEFAULT_WINDOW_DAYS = 90
@@ -107,7 +107,10 @@ def load_keywords(path: Path = None) -> KeywordConfig:
         )
 
     try:
-        raw = json.loads(target.read_text(encoding="utf-8"))
+        # utf-8-sig 로 읽어 BOM 을 흡수한다. 사람이 손으로 편집하는 파일이고
+        # 메모장·PowerShell Out-File 은 BOM 을 붙인다. utf-8 로 읽으면 BOM 때문에
+        # 설정이 조용히 무시되고 기본 키워드로 되돌아간다.
+        raw = json.loads(target.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as e:
         return KeywordConfig(
             source="default",
@@ -132,13 +135,19 @@ def validate_file(path: Path) -> list:
     if not target.exists():
         return [f"파일이 없습니다: {target}"]
     try:
-        raw = json.loads(target.read_text(encoding="utf-8"))
+        # utf-8-sig 로 읽어 BOM 을 흡수한다. 사람이 손으로 편집하는 파일이고
+        # 메모장·PowerShell Out-File 은 BOM 을 붙인다. utf-8 로 읽으면 BOM 때문에
+        # 설정이 조용히 무시되고 기본 키워드로 되돌아간다.
+        raw = json.loads(target.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as e:
         return [f"JSON 을 읽을 수 없습니다 ({target}): {e}"]
     return validate(raw)
 
 
 def main(argv: list = None) -> int:
+    # 키워드와 오류 메시지가 한글이다. 콘솔이 cp1252 인 CI 러너에서도 죽지 않게.
+    ensure_utf8_stdout()
+
     argv = sys.argv[1:] if argv is None else argv
     target = Path(argv[0]) if argv else Path(__file__).resolve().parent / "config" / "keywords.json"
 

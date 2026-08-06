@@ -1,4 +1,6 @@
+import contextlib
 import importlib
+import io
 import json
 import os
 import tempfile
@@ -99,6 +101,22 @@ class LoadTest(unittest.TestCase):
             write(p, {"keywords": [" 시루풍력 "]})
             self.assertEqual(kw_mod.load_keywords(p).keywords, ("시루풍력",))
 
+    def test_reads_file_with_utf8_bom(self):
+        """메모장·PowerShell Out-File 은 BOM 을 붙인다. 무시되면 안 된다."""
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "keywords.json"
+            p.write_text(json.dumps(VALID, ensure_ascii=False), encoding="utf-8-sig")
+            cfg = kw_mod.load_keywords(p)
+
+            self.assertEqual(cfg.keywords, ("시루풍력", "왕신풍력"))
+            self.assertEqual(cfg.warnings, ())
+
+    def test_validate_file_accepts_utf8_bom(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "keywords.json"
+            p.write_text(json.dumps(VALID, ensure_ascii=False), encoding="utf-8-sig")
+            self.assertEqual(kw_mod.validate_file(p), [])
+
     def test_missing_file_falls_back_with_warning(self):
         cfg = kw_mod.load_keywords(Path(tempfile.gettempdir()) / "nope-does-not-exist.json")
         self.assertEqual(cfg.keywords, kw_mod.DEFAULT_KEYWORDS)
@@ -169,6 +187,43 @@ class RepoConfigTest(unittest.TestCase):
             p = Path(d) / "keywords.json"
             write(p, {"keywords": ["시루"]})
             self.assertEqual(kw_mod.main([str(p)]), 1)
+
+
+class CliEncodingTest(unittest.TestCase):
+    """콘솔이 한글을 못 담는 환경에서도 CLI 가 죽지 않아야 한다.
+
+    GitHub windows-latest 러너의 stdout 은 cp1252 다. 키워드 값 자체가
+    한글이므로 메시지를 ASCII 로 바꾸는 것으로는 해결되지 않는다.
+    """
+
+    @staticmethod
+    @contextlib.contextmanager
+    def cp1252_stdout():
+        buffer = io.BytesIO()
+        stream = io.TextIOWrapper(buffer, encoding="cp1252", newline="")
+        try:
+            with contextlib.redirect_stdout(stream):
+                yield buffer
+        finally:
+            # detach 하지 않으면 wrapper 소멸 시 buffer 까지 닫혀 getvalue 가 실패한다.
+            stream.flush()
+            stream.detach()
+
+    def test_success_path_survives_cp1252_console(self):
+        path = Path(__file__).resolve().parent.parent / "config" / "keywords.json"
+        with self.cp1252_stdout() as buffer:
+            code = kw_mod.main([str(path)])
+        self.assertEqual(code, 0)
+        self.assertIn("시루풍력", buffer.getvalue().decode("utf-8", errors="replace"))
+
+    def test_failure_path_survives_cp1252_console(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "keywords.json"
+            write(p, {"keywords": ["시루"]})
+            with self.cp1252_stdout() as buffer:
+                code = kw_mod.main([str(p)])
+        self.assertEqual(code, 1)
+        self.assertIn("짧습니다", buffer.getvalue().decode("utf-8", errors="replace"))
 
 
 if __name__ == "__main__":
