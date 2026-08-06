@@ -9,7 +9,14 @@ SITE_DISPLAY = {
     "eiass_wind":   "소규모 환평(풍력)",
     "kepco_notice": "한전 재분배 용량 공지",
     "nie_notice":   "생태·자연도 공고",
+    "open_portal":  "정보공개 청구",
 }
+
+
+def _item_suffix(item: dict) -> str:
+    """발송처·매칭 키워드가 있으면 괄호 뒤에 덧붙인다(정보공개 청구 전용)."""
+    parts = [p for p in (item.get("dept"), item.get("keyword")) if p]
+    return f" · {' / '.join(parts)}" if parts else ""
 
 
 def build_card(new_items: list, metmasts: list) -> dict:
@@ -37,7 +44,10 @@ def build_card(new_items: list, metmasts: list) -> dict:
             "facts": [
                 {
                     "name":  f"[{item['site_name']}]",
-                    "value": f"[{item['title']}]({item['url']}) ({item['date']})",
+                    "value": (
+                        f"[{item['title']}]({item['url']}) "
+                        f"({item['date']}{_item_suffix(item)})"
+                    ),
                 }
                 for item in new_items
             ],

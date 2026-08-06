@@ -1,0 +1,39 @@
+name: 키워드 설정 검증
+
+# config/keywords.json 은 ci-deploy.yml 의 paths-ignore 에 있다. 재배포 없이
+# 반영되게 하려는 의도지만, 그 결과 키워드만 고친 push 는 CI 가 전혀 돌지
+# 않는다. 그래서 검증만 하는 워크플로를 따로 둔다. 배포는 하지 않으므로 빠르다.
+on:
+  push:
+    paths:
+      - 'config/keywords.json'
+      - 'keywords.py'
+      - '.github/workflows/validate-keywords.yml'
+  pull_request:
+    paths:
+      - 'config/keywords.json'
+      - 'keywords.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: 📥 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 🐍 Python 3.11 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: ✅ 키워드 설정 검증
+        run: python keywords.py config/keywords.json
+
+      - name: 🧪 키워드 단위 테스트
+        run: python -m unittest tests.test_keywords -v

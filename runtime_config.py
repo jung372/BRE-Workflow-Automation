@@ -66,6 +66,19 @@ def get_log_dir() -> Path:
     return get_runtime_dir() / "logs"
 
 
+def get_keywords_file() -> Path:
+    """정보공개 청구 감시 키워드 설정 경로를 반환한다.
+
+    설정 데이터이므로 데이터 쪽(publish clone)을 우선한다. 그러면 GitHub 에서
+    파일만 고쳐도 다음 정시 실행에 반영되고 재배포가 필요 없다. 개발 PC는
+    BRE_DATA_DIR 이 없어 저장소 사본으로 폴백한다.
+    """
+    data_copy = get_data_dir() / "config" / "keywords.json"
+    if data_copy.exists():
+        return data_copy
+    return PROJECT_ROOT / "config" / "keywords.json"
+
+
 def get_state_file() -> Path:
     return get_data_dir() / "last_state.json"
 

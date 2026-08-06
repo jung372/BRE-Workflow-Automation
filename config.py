@@ -55,6 +55,12 @@ SITES = [
         "url": "https://www.nie.re.kr/nie/bbs/BMSR00038/list.do?menuNo=200099&pageIndex=1&gubunCd=&searchCondition=&searchKeyword=",
         "title_idx": 1, "date_idx": 4, "num_idx": 0, "proxy": True,
     },
+    {
+        # 감시 키워드는 코드가 아니라 config/keywords.json 에 있다.
+        "id": "open_portal", "name": "정보공개 청구", "icon": "📄", "color": "#a855f7",
+        "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
+        "type": "openportal", "proxy": True,
+    },
 ]
 
 METMASTS = [
