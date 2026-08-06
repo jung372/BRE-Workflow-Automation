@@ -173,10 +173,14 @@ $trigger.Repetition = $repetitionSource.Repetition
 
 # git push 자격증명(Windows 자격 증명 관리자)을 쓰려면 사용자 세션이 필요하다.
 # self-hosted runner 도 같은 제약이므로 두 작업의 조건이 일치한다.
+#
+# RunLevel 은 Limited 로 둔다. 스크래핑에는 관리자 권한이 필요 없고,
+# Highest 로 등록하려면 이 스크립트 자체가 관리자 권한이어야 해서
+# 권한 없는 창에서 Access is denied 로 조용히 실패한다.
 $principal = New-ScheduledTaskPrincipal `
     -UserId "$env:USERDOMAIN\$env:USERNAME" `
     -LogonType Interactive `
-    -RunLevel Highest
+    -RunLevel Limited
 $settings = New-ScheduledTaskSettingsSet `
     -AllowStartIfOnBatteries `
     -DontStopIfGoingOnBatteries `
@@ -184,24 +188,47 @@ $settings = New-ScheduledTaskSettingsSet `
     -ExecutionTimeLimit (New-TimeSpan -Minutes 30) `
     -MultipleInstances IgnoreNew
 
-Register-ScheduledTask `
-    -TaskName $TaskName `
-    -Action $action `
-    -Trigger $trigger `
-    -Principal $principal `
-    -Settings $settings `
-    -Description 'BRE Workflow 모니터링 스크래핑 (매시 06~20 KST)' `
-    -Force |
-    Out-Null
+# Register-ScheduledTask 는 CIM cmdlet 이라 실패가 비종료 오류로 발생한다.
+# -ErrorAction Stop 없이는 try/catch 도 $ErrorActionPreference 도 놓칠 수 있어
+# 등록에 실패했는데 성공 메시지를 출력하는 사고가 난다. 명시 지정 + 사후 검증.
+try {
+    Register-ScheduledTask `
+        -TaskName $TaskName `
+        -Action $action `
+        -Trigger $trigger `
+        -Principal $principal `
+        -Settings $settings `
+        -Description 'BRE Workflow 모니터링 스크래핑 (매시 06~20 KST)' `
+        -Force `
+        -ErrorAction Stop |
+        Out-Null
+}
+catch {
+    Write-Warning "[SETUP] 예약 작업 등록 실패: $($_.Exception.Message)"
+    $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $isAdmin = ([Security.Principal.WindowsPrincipal]$identity).IsInRole(
+        [Security.Principal.WindowsBuiltInRole]::Administrator
+    )
+    Write-Warning "[SETUP] 현재 창 관리자 권한: $isAdmin"
+    if ($TaskName -match '\s') {
+        Write-Warning "[SETUP] 작업 이름에 공백이 있습니다. 인용을 확인하세요: '$TaskName'"
+    }
+    throw
+}
 
-Write-Host "[SETUP] 예약 작업 등록 완료: $TaskName"
+# 등록되었다고 보고하기 전에 실제로 존재하는지 확인한다.
+$registered = Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue
+if (-not $registered) {
+    throw "예약 작업이 등록되지 않았습니다: $TaskName"
+}
+
+Write-Host "[SETUP] 예약 작업 등록 확인: $TaskName (State=$($registered.State))"
 Write-Host "[SETUP]  - 실행: 매일 KST $StartTime 부터 1시간 간격, $RepeatHours 시간"
 Write-Host ''
 Write-Host '[SETUP] 서버 초기화 완료.'
 Write-Host '[SETUP] 다음 단계:'
-Write-Host '[SETUP]   1) .\scripts\setup_github_runner.ps1  (관리자 PowerShell)'
-Write-Host '[SETUP]   2) 저장소 변수 SERVER_DEPLOY_ENABLED=true 설정'
-Write-Host '[SETUP]   3) .\scripts\doctor.ps1 로 점검'
-Write-Host ''
-Write-Host '[SETUP] 수동 1회 실행으로 확인:'
-Write-Host "[SETUP]   Start-ScheduledTask -TaskName '$TaskName'"
+Write-Host '[SETUP]   1) 수동 1회 실행으로 발행 검증:'
+Write-Host "[SETUP]        Start-ScheduledTask -TaskName '$TaskName'"
+Write-Host '[SETUP]   2) .\scripts\setup_github_runner.ps1'
+Write-Host '[SETUP]   3) 저장소 변수 SERVER_DEPLOY_ENABLED=true 설정'
+Write-Host '[SETUP]   4) .\scripts\doctor.ps1 로 점검'
