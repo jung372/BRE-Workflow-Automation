@@ -13,13 +13,15 @@ Set-StrictMode -Version Latest
 # 같은 서버 PC에서 Stock_Report_Codex 러너가 이미 돌고 있다.
 # 러너 루트·이름·레이블·작업명을 모두 분리해 충돌을 피한다.
 
+# 이 스크립트에 관리자 권한이 필요한 작업은 없다. 러너 다운로드·등록·예약
+# 작업 생성 모두 사용자 권한으로 충분하다. 권한이 없으면 알리기만 하고 진행한다.
 $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
 $principalCheck = [Security.Principal.WindowsPrincipal]::new($identity)
 $isAdministrator = $principalCheck.IsInRole(
     [Security.Principal.WindowsBuiltInRole]::Administrator
 )
 if (-not $isAdministrator) {
-    throw '관리자 권한 PowerShell 에서 실행하세요.'
+    Write-Host '[RUNNER] 관리자 권한 없이 실행합니다. (필요하지 않습니다)'
 }
 
 $resolvedRunnerRoot = [System.IO.Path]::GetFullPath($RunnerRoot)
@@ -64,7 +66,12 @@ if (-not (Test-Path -LiteralPath $runnerMarker)) {
     )
     $gh = Get-Command gh -ErrorAction SilentlyContinue
     if (-not $gh) {
-        throw 'GitHub CLI 를 찾을 수 없습니다. 설치 후 gh auth login 을 먼저 실행하세요.'
+        throw (
+            'GitHub CLI 를 찾을 수 없습니다. 설치 후 gh auth login 을 먼저 실행하세요. ' +
+            '또는 저장소 Settings > Actions > Runners 에서 등록 토큰을 발급받아 ' +
+            "직접 실행하세요: cd `"$resolvedRunnerRoot`"; .\config.cmd --url $RepositoryUrl " +
+            "--token <TOKEN> --name $RunnerName --labels $Labels --work _work --replace --unattended"
+        )
     }
 
     Write-Host '[RUNNER] 단기 등록 토큰을 발급받습니다.'
@@ -126,10 +133,12 @@ $action = New-ScheduledTaskAction `
     -Argument $taskArguments `
     -WorkingDirectory $resolvedRunnerRoot
 $trigger = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
+# RunLevel Highest 는 등록 시 관리자 권한을 요구한다. 러너가 실행할 배포
+# 스크립트는 사용자 소유 경로만 쓰므로 승격이 필요 없다.
 $taskPrincipal = New-ScheduledTaskPrincipal `
     -UserId "$env:USERDOMAIN\$env:USERNAME" `
     -LogonType Interactive `
-    -RunLevel Highest
+    -RunLevel Limited
 $settings = New-ScheduledTaskSettingsSet `
     -AllowStartIfOnBatteries `
     -DontStopIfGoingOnBatteries `
@@ -138,6 +147,8 @@ $settings = New-ScheduledTaskSettingsSet `
     -ExecutionTimeLimit (New-TimeSpan -Days 3650) `
     -MultipleInstances IgnoreNew
 
+# CIM cmdlet 의 실패는 비종료 오류다. -ErrorAction Stop 으로 명시하고
+# 사후 검증까지 해야 등록 실패를 성공으로 착각하지 않는다.
 Register-ScheduledTask `
     -TaskName $TaskName `
     -Action $action `
@@ -145,12 +156,18 @@ Register-ScheduledTask `
     -Principal $taskPrincipal `
     -Settings $settings `
     -Description 'GitHub Actions runner for BRE-Workflow-Automation2' `
-    -Force |
+    -Force `
+    -ErrorAction Stop |
     Out-Null
 
-Start-ScheduledTask -TaskName $TaskName
+$task = Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue
+if (-not $task) {
+    throw "러너 예약 작업이 등록되지 않았습니다: $TaskName"
+}
+
+Start-ScheduledTask -TaskName $TaskName -ErrorAction Stop
 Start-Sleep -Seconds 5
-$task = Get-ScheduledTask -TaskName $TaskName
+$task = Get-ScheduledTask -TaskName $TaskName -ErrorAction Stop
 if ($task.State -ne 'Running') {
     throw "러너 작업이 실행 중이 아닙니다. 현재 상태: $($task.State)"
 }
