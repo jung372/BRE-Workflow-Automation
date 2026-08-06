@@ -1,0 +1,94 @@
+name: 검증 및 서버 배포
+
+on:
+  push:
+    branches:
+      - main
+    # 서버가 매시간 push 하는 데이터 파일은 배포를 트리거하지 않는다.
+    paths-ignore:
+      - 'data/status.json'
+      - 'last_state.json'
+      - 'docs/**'
+      - '**/*.md'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bre-workflow-production
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: windows-latest   # 서버 PC와 동일한 OS에서 검증한다
+    timeout-minutes: 20
+
+    steps:
+      - name: 📥 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 🐍 Python 3.11 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: 📦 패키지 설치
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check --upgrade pip
+          python -m pip install --disable-pip-version-check -r requirements.txt
+
+      - name: 🔍 문법 검사
+        shell: pwsh
+        run: |
+          python -m compileall -q `
+            config.py state.py runtime_config.py scraper.py run_local.py `
+            notify_teams.py push_to_github.py dashboard_app.py `
+            logic scrapers presentation tests
+
+      - name: 🧪 단위 테스트
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: 📥 진입점 임포트 확인
+        shell: pwsh
+        run: |
+          # 예약 작업과 report.yml 이 실제로 실행하는 경로를 확인한다.
+          # notify_teams 는 python-dotenv 없이도 import 되어야 한다(report.yml 은
+          # requests 만 설치하므로 runtime_config 의 dotenv 임포트가 선택적이어야 함).
+          python run_local.py --help
+          python -c "import notify_teams, push_to_github, dashboard_app, scraper"
+
+  deploy:
+    needs: test
+    if: >-
+      github.repository == 'jung372/BRE-Workflow-Automation2' &&
+      vars.SERVER_DEPLOY_ENABLED == 'true'
+    runs-on:
+      - self-hosted
+      - windows
+      - x64
+      - bre-workflow-server
+    timeout-minutes: 45     # 실제 스크래핑 스모크 포함
+    environment: production
+
+    steps:
+      - name: 📥 검증된 commit 체크아웃
+        uses: actions/checkout@v4
+        with:
+          clean: true
+
+      - name: 🚀 배포
+        shell: powershell
+        run: |
+          .\scripts\deploy_server.ps1 `
+            -SourcePath '${{ github.workspace }}' `
+            -InstallRoot 'D:\05 AI Study\BRE Workflow Automation' `
+            -RuntimeRoot 'D:\05 AI Study\BRE_Workflow_runtime' `
+            -TaskName 'BRE Scraper' `
+            -CommitSha '${{ github.sha }}' `
+            -SmokeMinOk ${{ vars.BRE_SMOKE_MIN_OK || 3 }}

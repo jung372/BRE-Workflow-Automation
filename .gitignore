@@ -7,6 +7,19 @@ __pycache__/
 # 로그
 *.log
 monitor.log
+logs/
+
+# 실행 락 / 스모크 격리 디렉터리 (run_local.py 가 생성)
+run.lock
+deploy.lock
+_smoke/
+
+# 서버 배포 산출물 (InstallRoot 는 저장소 밖이지만 실수 방지용)
+releases/
+launcher/
+current_release.txt
+deployment.json
+release.json
 
 # 민감 설정 (이메일 계정 등)
 config.json

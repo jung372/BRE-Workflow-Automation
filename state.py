@@ -1,9 +1,11 @@
 import json, os, re
 from datetime import datetime, timezone, timedelta
 
+from runtime_config import get_state_file
+
 KST           = timezone(timedelta(hours=9))
 BASE_DIR      = os.path.dirname(os.path.abspath(__file__))
-STATE_FILE    = os.path.join(BASE_DIR, "last_state.json")
+STATE_FILE    = str(get_state_file())
 BASELINE_DAYS = 5
 KEEP_DAYS     = 11
 
@@ -26,6 +28,7 @@ def load_state() -> dict:
 
 
 def save_state(state: dict):
+    os.makedirs(os.path.dirname(STATE_FILE), exist_ok=True)
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False, indent=2)
 
