@@ -4,13 +4,13 @@ from playwright.sync_api import sync_playwright
 
 from config  import SITES, METMASTS
 from state   import load_state, save_state, get_baseline_ids, update_site_state, item_id
+from runtime_config    import get_status_file
 from scrapers          import fetch_site
 from scrapers.metmast  import check_metmast
 
 KST      = timezone(timedelta(hours=9))
-_ROOT    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(_ROOT, "data")
-OUTPUT   = os.path.join(DATA_DIR, "status.json")
+OUTPUT   = str(get_status_file())
+DATA_DIR = os.path.dirname(OUTPUT)
 
 log = logging.getLogger(__name__)
 

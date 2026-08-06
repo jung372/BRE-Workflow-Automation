@@ -11,13 +11,14 @@ Entry Point — 비교 로직과 카드 빌딩은 logic/detector.py, presentatio
 import json, os, sys
 import requests
 
+from runtime_config        import get_status_file
 from state                  import load_state, STATE_FILE
 from logic.detector         import get_new_items
 from presentation.teams_card import build_card, SITE_DISPLAY, MUTED_METMASTS
 
 FORCE_SEND  = "--force" in sys.argv or os.environ.get("FORCE_SEND", "").lower() == "true"
 WEBHOOK_URL = os.environ.get("TEAMS_WEBHOOK_URL", "")
-STATUS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "status.json")
+STATUS_FILE = str(get_status_file())
 
 
 def load_metmasts() -> list:

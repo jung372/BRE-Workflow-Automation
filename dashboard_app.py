@@ -5,11 +5,11 @@
 """
 
 import logging, os, threading, time
-from pathlib import Path
-from dotenv import load_dotenv
 from flask import Flask, jsonify, send_from_directory
 
-load_dotenv(Path(__file__).parent / '.env')
+from runtime_config import load_app_environment
+
+load_app_environment()
 
 from logic.runner import run
 from state        import STATE_FILE
