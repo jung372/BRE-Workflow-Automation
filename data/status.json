@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-07 08:00:07",
+  "checked_at": "2026-08-07 09:00:05",
   "sites": [
     {
       "id": "notice",
@@ -116,7 +116,7 @@
     {
       "id": "BLMU",
       "name": "BLMU",
-      "status": "Offline",
+      "status": "Online",
       "url": "http://d243101.connect.ammonit.com/"
     },
     {
