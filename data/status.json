@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-10 14:00:04",
+  "checked_at": "2026-08-10 15:00:05",
   "sites": [
     {
       "id": "notice",
@@ -50,69 +50,8 @@
       "color": "#f97316",
       "url": "https://online.kepco.co.kr/EWM040D00",
       "error": null,
-      "new_count": 10,
-      "new_items": [
-        {
-          "num": "-",
-          "title": "'26년 상반기 전력계통 회수용량 재분배 일정 및 대상 안내('26. 6. 29.)",
-          "date": "게시글 등록일2026.06.29",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "'25년 하반기 전국 3단계 대상 재분배 시행 안내('25.11.03)",
-          "date": "게시글 등록일2025.11.03",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "'25년 하반기 전국 2단계 대상 재분배 시행 안내 ('25.10.20)",
-          "date": "게시글 등록일2025.10.20",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "25년 하반기 전력계통 회수용량 재분배 신청 안내('25.10. 1.)",
-          "date": "게시글 등록일2025.10.01",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "'25년 하반기 호남권 3단계 대상 재분배 기간 연장 및 4단계 시행 안내",
-          "date": "게시글 등록일2025.09.05",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "'25년 하반기 호남권 3단계 대상 재분배 시행안내('25.08.18)",
-          "date": "게시글 등록일2025.08.18",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "'25년 하반기 호남권 전력계통 회수용량 재분배 일정 및 대상 재안내('25.8.14.)",
-          "date": "게시글 등록일2025.08.18",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "'25년 하반기 호남권 2단계 대상 재분배 시행 안내('25.07.28)",
-          "date": "게시글 등록일2025.07.28",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "'25년 하반기 전력계통 회수용량 재분배 및 유연접속 신청 안내('25.7.15)",
-          "date": "게시글 등록일2025.07.15",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "num": "-",
-          "title": "'25년 상반기 잔여 용량 사업자 재분배 용량 안내('25. 5. 28.)",
-          "date": "게시글 등록일2025.05.28",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        }
-      ],
+      "new_count": 0,
+      "new_items": [],
       "total": 10
     },
     {
