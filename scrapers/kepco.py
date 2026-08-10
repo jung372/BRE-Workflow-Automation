@@ -1,9 +1,25 @@
 import logging
+import re
 from bs4 import BeautifulSoup
 from scrapers.retry import goto_with_retry
 from config import GOTO_TIMEOUT
 
 log = logging.getLogger(__name__)
+
+_NOTICE_DATE_RE = re.compile(
+    r"(?<!\d)(\d{4})\s*[./-]\s*(\d{1,2})\s*[./-]\s*(\d{1,2})(?!\d)"
+)
+
+
+def normalize_notice_date(text: str) -> str:
+    """접근성용 숨김 문구와 무관하게 공지 등록일만 표준화한다."""
+    raw = (text or "").strip()
+    match = _NOTICE_DATE_RE.search(raw)
+    if not match:
+        return raw
+
+    year, month, day = match.groups()
+    return f"{year}.{int(month):02d}.{int(day):02d}"
 
 
 def fetch_kepco(site: dict, p_instance) -> tuple:
@@ -36,7 +52,7 @@ def fetch_kepco(site: dict, p_instance) -> tuple:
                 notices.append({
                     "num":   "-",
                     "title": title_el.get_text(strip=True),
-                    "date":  date_el.get_text(strip=True),
+                    "date":  normalize_notice_date(date_el.get_text(" ", strip=True)),
                     "url":   site["url"],
                 })
         except Exception:
