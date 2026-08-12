@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-13 06:00:06",
+  "checked_at": "2026-08-13 07:00:05",
   "sites": [
     {
       "id": "notice",
@@ -63,8 +63,20 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 2,
+      "new_count": 3,
       "new_items": [
+        {
+          "uid": "JHOMS262241777514000",
+          "title": "소규모 환경영향평가(본안) 검토의견 회신[경주 왕신풍력 발전소]",
+          "dept": "국립생태원",
+          "dept_full": "국립생태원",
+          "instt": "국립생태원",
+          "date": "2026-08-13",
+          "prod_date": "2026-08-12",
+          "doc_no": "환경영향평가팀-3368",
+          "keyword": "왕신풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
+        },
         {
           "uid": "DCT3CD9E333743E595CC2048D802E98A53E",
           "title": "개발행위허가신청 인허가 협의 요청에 따른 협의 통보(고곡 산119-3외, 풍력발전기 및 진입로, 한O바람)",
@@ -90,7 +102,7 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
         }
       ],
-      "total": 32,
+      "total": 33,
       "keywords": [
         "시루풍력",
         "왕신풍력",
