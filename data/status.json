@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-13 07:00:05",
+  "checked_at": "2026-08-13 08:00:06",
   "sites": [
     {
       "id": "notice",
@@ -117,7 +117,7 @@
     {
       "id": "SIRU",
       "name": "SIRU",
-      "status": "Offline",
+      "status": "Online",
       "url": "https://d215027.connect.ammonit.com/"
     },
     {
