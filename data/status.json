@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-15 20:00:04",
+  "checked_at": "2026-08-16 06:00:04",
   "sites": [
     {
       "id": "notice",
@@ -72,7 +72,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 3,
+      "new_count": 1,
       "new_items": [
         {
           "uid": "JHOMS262241777514000",
@@ -85,30 +85,6 @@
           "doc_no": "환경영향평가팀-3368",
           "keyword": "왕신풍력",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCT3CD9E333743E595CC2048D802E98A53E",
-          "title": "개발행위허가신청 인허가 협의 요청에 따른 협의 통보(고곡 산119-3외, 풍력발전기 및 진입로, 한O바람)",
-          "dept": "산림과",
-          "dept_full": "경상북도 영덕군 산림과",
-          "instt": "경상북도 영덕군",
-          "date": "2026-08-11",
-          "prod_date": "2026-08-10",
-          "doc_no": "산림과-12852",
-          "keyword": "고곡풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EA%B3%A0%EA%B3%A1%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCT21B814FD00424BA4FAD63E85D5BACC46",
-          "title": "개발행위허가 신청에 따른 관련부서 협의 요청에 따른 회신(해파랑육상풍력)",
-          "dept": "일자리경제과",
-          "dept_full": "경상북도 영덕군 일자리경제과",
-          "instt": "경상북도 영덕군",
-          "date": "2026-08-11",
-          "prod_date": "2026-08-10",
-          "doc_no": "일자리경제과-43636",
-          "keyword": "해파랑육상풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
         }
       ],
       "total": 33,
@@ -126,7 +102,7 @@
     {
       "id": "SIRU",
       "name": "SIRU",
-      "status": "Online",
+      "status": "Offline",
       "url": "https://d215027.connect.ammonit.com/"
     },
     {
