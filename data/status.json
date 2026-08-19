@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-19 15:00:03",
+  "checked_at": "2026-08-19 16:00:04",
   "sites": [
     {
       "id": "notice",
@@ -8,9 +8,16 @@
       "color": "#3b82f6",
       "url": "https://www.korec.go.kr/notice/selectNoticeList.do",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
-      "total": 16
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "공지",
+          "title": "제326차 전기위원회 회의록",
+          "date": "2026-08-19",
+          "url": "https://www.korec.go.kr/notice/selectNoticeList.do"
+        }
+      ],
+      "total": 15
     },
     {
       "id": "result",
@@ -19,8 +26,15 @@
       "color": "#10b981",
       "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "공지",
+          "title": "제327차 전기위원회 개최결과",
+          "date": "2026-08-19",
+          "url": "https://www.korec.go.kr/notice/result/selectNoticeList.do"
+        }
+      ],
       "total": 11
     },
     {
