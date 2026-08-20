@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-21 06:00:07",
+  "checked_at": "2026-08-21 07:00:04",
   "sites": [
     {
       "id": "notice",
@@ -99,9 +99,22 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
-      "total": 33,
+      "new_count": 1,
+      "new_items": [
+        {
+          "uid": "DCTFFEFA49E7D06AB7EA25EE5D9E5A149B3",
+          "title": "전기사업 허가 신청에 따른 의견 조회(경주시루풍력 2호) 회신",
+          "dept": "산림경영과",
+          "dept_full": "경상북도 경주시 환경녹지국 산림경영과",
+          "instt": "경상북도 경주시",
+          "date": "2026-08-21",
+          "prod_date": "2026-08-20",
+          "doc_no": "산림경영과-12577",
+          "keyword": "시루풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
+        }
+      ],
+      "total": 34,
       "keywords": [
         "시루풍력",
         "왕신풍력",
