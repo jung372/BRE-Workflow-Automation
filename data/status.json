@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-20 18:00:04",
+  "checked_at": "2026-08-20 19:00:03",
   "sites": [
     {
       "id": "notice",
@@ -44,8 +44,17 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 0,
-      "new_items": [],
+      "new_count": 1,
+      "new_items": [
+        {
+          "num": "GW20260097",
+          "title": "간성풍력발전 가공 및 지중선로 건설공사",
+          "date": "2026-07-10",
+          "comp_date": "2026-08-20",
+          "status": "본협의(완료)",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        }
+      ],
       "total": 61
     },
     {
