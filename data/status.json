@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-20 20:00:04",
+  "checked_at": "2026-08-21 06:00:07",
   "sites": [
     {
       "id": "notice",
@@ -98,10 +98,10 @@
       "icon": "📄",
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
-      "error": "모든 키워드 조회 실패: 시루풍력, 왕신풍력, 고곡풍력, 삼척에코윈드, 운제풍력, 해파랑육상풍력",
+      "error": null,
       "new_count": 0,
       "new_items": [],
-      "total": 0,
+      "total": 33,
       "keywords": [
         "시루풍력",
         "왕신풍력",
