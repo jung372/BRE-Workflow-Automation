@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-25 06:00:05",
+  "checked_at": "2026-08-25 07:00:06",
   "sites": [
     {
       "id": "notice",
@@ -63,8 +63,20 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 3,
+      "new_count": 4,
       "new_items": [
+        {
+          "uid": "DCT4AA171D4570AA31053BB7D6775A541B6",
+          "title": "소규모 환경영향평가서 검토의견[경주 왕신풍력 발전소] 회신",
+          "dept": "기후국토환경연구과",
+          "dept_full": "기후에너지환경부 국립환경과학원 기후탄소연구부 기후국토환경연구과",
+          "instt": "기후에너지환경부",
+          "date": "2026-08-25",
+          "prod_date": "2026-08-24",
+          "doc_no": "기후국토환경연구과-4005",
+          "keyword": "왕신풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
+        },
         {
           "uid": "2500314792211",
           "title": "경주시루풍력 2호 발전사업허가 관련 계통연계 검토의견 회신",
@@ -102,7 +114,7 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
         }
       ],
-      "total": 36,
+      "total": 37,
       "keywords": [
         "시루풍력",
         "왕신풍력",
