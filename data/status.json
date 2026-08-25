@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-25 20:00:04",
+  "checked_at": "2026-08-26 06:00:04",
   "sites": [
     {
       "id": "notice",
@@ -87,7 +87,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 4,
+      "new_count": 3,
       "new_items": [
         {
           "uid": "DCT4AA171D4570AA31053BB7D6775A541B6",
@@ -122,18 +122,6 @@
           "date": "2026-08-22",
           "prod_date": "2026-08-21",
           "doc_no": "대구본(계통)-10799",
-          "keyword": "시루풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCTFFEFA49E7D06AB7EA25EE5D9E5A149B3",
-          "title": "전기사업 허가 신청에 따른 의견 조회(경주시루풍력 2호) 회신",
-          "dept": "산림경영과",
-          "dept_full": "경상북도 경주시 환경녹지국 산림경영과",
-          "instt": "경상북도 경주시",
-          "date": "2026-08-21",
-          "prod_date": "2026-08-20",
-          "doc_no": "산림경영과-12577",
           "keyword": "시루풍력",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
         }
