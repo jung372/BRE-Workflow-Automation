@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-26 06:00:04",
+  "checked_at": "2026-08-26 07:00:05",
   "sites": [
     {
       "id": "notice",
@@ -87,8 +87,20 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 3,
+      "new_count": 4,
       "new_items": [
+        {
+          "uid": "DCT3C45E9B70E17E7453C474BA868F96C18",
+          "title": "출장복명서[허가신청-영덕해파랑육상풍력단지조성(한국바람 주식회사)]",
+          "dept": "종합민원처리과",
+          "dept_full": "경상북도 영덕군 종합민원처리과",
+          "instt": "경상북도 영덕군",
+          "date": "2026-08-26",
+          "prod_date": "2026-08-25",
+          "doc_no": "종합민원처리과-17780",
+          "keyword": "해파랑육상풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
+        },
         {
           "uid": "DCT4AA171D4570AA31053BB7D6775A541B6",
           "title": "소규모 환경영향평가서 검토의견[경주 왕신풍력 발전소] 회신",
@@ -126,7 +138,7 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
         }
       ],
-      "total": 37,
+      "total": 38,
       "keywords": [
         "시루풍력",
         "왕신풍력",
