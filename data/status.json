@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-26 20:00:07",
+  "checked_at": "2026-08-27 06:00:05",
   "sites": [
     {
       "id": "notice",
@@ -87,7 +87,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 4,
+      "new_count": 2,
       "new_items": [
         {
           "uid": "DCT3C45E9B70E17E7453C474BA868F96C18",
@@ -112,30 +112,6 @@
           "doc_no": "기후국토환경연구과-4005",
           "keyword": "왕신풍력",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "2500314792211",
-          "title": "경주시루풍력 2호 발전사업허가 관련 계통연계 검토의견 회신",
-          "dept": "한국전력공사",
-          "dept_full": "한국전력공사",
-          "instt": "한국전력공사",
-          "date": "2026-08-22",
-          "prod_date": "2026-08-21",
-          "doc_no": "대구본(계통)-3047",
-          "keyword": "시루풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "2500314792212",
-          "title": "경주시루풍력 2호 발전사업허가 관련 계통연계 검토결과 보고",
-          "dept": "한국전력공사",
-          "dept_full": "한국전력공사",
-          "instt": "한국전력공사",
-          "date": "2026-08-22",
-          "prod_date": "2026-08-21",
-          "doc_no": "대구본(계통)-10799",
-          "keyword": "시루풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
         }
       ],
       "total": 38,
