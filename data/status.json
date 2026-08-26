@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-27 06:00:05",
+  "checked_at": "2026-08-27 07:00:03",
   "sites": [
     {
       "id": "notice",
@@ -87,8 +87,32 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 2,
+      "new_count": 4,
       "new_items": [
+        {
+          "uid": "JHOMS262310597501000",
+          "title": "경주 시루풍력 2호 발전사업 허가 문의에 대한 검토의견 회신",
+          "dept": "한국전력거래소",
+          "dept_full": "한국전력거래소",
+          "instt": "한국전력거래소",
+          "date": "2026-08-27",
+          "prod_date": "2026-08-19",
+          "doc_no": "계통계획팀-1280",
+          "keyword": "시루풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
+        },
+        {
+          "uid": "JHOMS262310597512000",
+          "title": "경주 시루풍력 2호 발전사업허가 검토 결과",
+          "dept": "한국전력거래소",
+          "dept_full": "한국전력거래소",
+          "instt": "한국전력거래소",
+          "date": "2026-08-27",
+          "prod_date": "2026-08-19",
+          "doc_no": "계통계획팀-1281",
+          "keyword": "시루풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
+        },
         {
           "uid": "DCT3C45E9B70E17E7453C474BA868F96C18",
           "title": "출장복명서[허가신청-영덕해파랑육상풍력단지조성(한국바람 주식회사)]",
@@ -114,7 +138,7 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
         }
       ],
-      "total": 38,
+      "total": 40,
       "keywords": [
         "시루풍력",
         "왕신풍력",
