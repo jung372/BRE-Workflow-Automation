@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-28 06:00:05",
+  "checked_at": "2026-08-28 07:00:03",
   "sites": [
     {
       "id": "notice",
@@ -87,8 +87,44 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 4,
+      "new_count": 7,
       "new_items": [
+        {
+          "uid": "DCTAA619E0E4633CF1AA3CDA602C74110C9",
+          "title": "개발행위허가신청에 따른 보완사항 통지(강동면 왕신리 산217번지 외 9필지 일원, 경주왕신풍력발전소)",
+          "dept": "지역개발과",
+          "dept_full": "경상북도 경주시 안강읍 지역개발과",
+          "instt": "경상북도 경주시",
+          "date": "2026-08-28",
+          "prod_date": "2026-08-27",
+          "doc_no": "지역개발과-10968",
+          "keyword": "왕신풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
+        },
+        {
+          "uid": "DCT5D7199411650029BB1D64159269FC4AD",
+          "title": "영덕 해파랑육상풍력 송전선로 설치공사 관련 의견조회",
+          "dept": "건설과",
+          "dept_full": "경상북도 울진군 안전건설국 건설과",
+          "instt": "경상북도 울진군",
+          "date": "2026-08-28",
+          "prod_date": "2026-08-27",
+          "doc_no": "건설과-29273",
+          "keyword": "해파랑육상풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
+        },
+        {
+          "uid": "DCTF4F38CFDB97D31D29DD6C8C383B7DAFC",
+          "title": "영덕 해파랑육상풍력 송전선로 설치 공사에 대한 의견서 제출",
+          "dept": "후포면",
+          "dept_full": "경상북도 울진군 후포면",
+          "instt": "경상북도 울진군",
+          "date": "2026-08-28",
+          "prod_date": "2026-08-27",
+          "doc_no": "후포면-10236",
+          "keyword": "해파랑육상풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
+        },
         {
           "uid": "JHOMS262310597501000",
           "title": "경주 시루풍력 2호 발전사업 허가 문의에 대한 검토의견 회신",
@@ -138,7 +174,7 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
         }
       ],
-      "total": 40,
+      "total": 43,
       "keywords": [
         "시루풍력",
         "왕신풍력",
