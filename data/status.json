@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-28 16:00:04",
+  "checked_at": "2026-08-28 17:00:05",
   "sites": [
     {
       "id": "notice",
@@ -36,10 +36,43 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Read timed out. (read timeout=30)",
-      "new_count": 0,
-      "new_items": [],
-      "total": 0
+      "error": null,
+      "new_count": 4,
+      "new_items": [
+        {
+          "num": "ME20260111",
+          "title": "삼척 노곡풍력 발전사업",
+          "date": "2026-08-28",
+          "comp_date": "",
+          "status": "변경협의(진행)",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        },
+        {
+          "num": "ME20260098",
+          "title": "울진군 신림풍력발전사업",
+          "date": "2026-08-14",
+          "comp_date": "",
+          "status": "변경협의(진행)",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        },
+        {
+          "num": "GW20250167",
+          "title": "정선 도진풍력 발전사업",
+          "date": "2026-07-14",
+          "comp_date": "2026-07-15",
+          "status": "",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        },
+        {
+          "num": "ME20240007",
+          "title": "한솔풍력발전단지 조성사업",
+          "date": "2024-01-10",
+          "comp_date": "2024-09-02",
+          "status": "본협의(완료)",
+          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
+        }
+      ],
+      "total": 61
     },
     {
       "id": "kepco_notice",
