@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-28 09:00:05",
+  "checked_at": "2026-08-28 10:00:09",
   "sites": [
     {
       "id": "notice",
@@ -70,7 +70,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 7,
+      "new_count": 37,
       "new_items": [
         {
           "uid": "DCTAA619E0E4633CF1AA3CDA602C74110C9",
@@ -133,6 +133,18 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
         },
         {
+          "uid": "DCTFB856880893B3EBF7561588B223F0072",
+          "title": "개발행위(토지형질변경,공작물설치) 허가 통보(한국바람 주식회사 대표 배0호)",
+          "dept": "종합민원처리과",
+          "dept_full": "경상북도 영덕군 종합민원처리과",
+          "instt": "경상북도 영덕군",
+          "date": "2026-08-26",
+          "prod_date": "2026-08-25",
+          "doc_no": "종합민원처리과-17850",
+          "keyword": "한국바람",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
+        },
+        {
           "uid": "DCT3C45E9B70E17E7453C474BA868F96C18",
           "title": "출장복명서[허가신청-영덕해파랑육상풍력단지조성(한국바람 주식회사)]",
           "dept": "종합민원처리과",
@@ -141,8 +153,8 @@
           "date": "2026-08-26",
           "prod_date": "2026-08-25",
           "doc_no": "종합민원처리과-17780",
-          "keyword": "해파랑육상풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
+          "keyword": "한국바람, 해파랑육상풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         },
         {
           "uid": "DCT4AA171D4570AA31053BB7D6775A541B6",
@@ -155,15 +167,41 @@
           "doc_no": "기후국토환경연구과-4005",
           "keyword": "왕신풍력",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
+        },
+        {
+          "uid": "DCTE35AAD9FBD7BA0DE8D995E6F74AEA841",
+          "title": "인천 하늬바람1,2,3  해상풍력 발전사업 허가 심의 의견 회신(한국동서발전(주))",
+          "dept": "해양수산환경과",
+          "dept_full": "해양수산부 인천지방해양수산청 해양수산환경과",
+          "instt": "해양수산부",
+          "date": "2026-08-22",
+          "prod_date": "2026-08-21",
+          "doc_no": "해양수산환경과-6215",
+          "keyword": "한국바람",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
+        },
+        {
+          "uid": "JHOMS262323653888000",
+          "title": "한국동서발전㈜ 인천 하늬바람3 해상풍력 발전사업(발전단지 좌표 수정) 허가 심의 관련 의견 제출",
+          "dept": "해양환경공단",
+          "dept_full": "해양환경공단",
+          "instt": "해양환경공단",
+          "date": "2026-08-21",
+          "prod_date": "2026-08-20",
+          "doc_no": "해양공간관리처-1551",
+          "keyword": "한국바람",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         }
       ],
-      "total": 43,
+      "total": 73,
       "keywords": [
         "시루풍력",
         "왕신풍력",
         "고곡풍력",
+        "고실풍력",
         "삼척에코윈드",
         "운제풍력",
+        "한국바람",
         "해파랑육상풍력"
       ]
     }
