@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-28 15:00:04",
+  "checked_at": "2026-08-28 16:00:04",
   "sites": [
     {
       "id": "notice",
@@ -36,27 +36,10 @@
       "icon": "🌬️",
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
-      "error": null,
-      "new_count": 2,
-      "new_items": [
-        {
-          "num": "ME20260098",
-          "title": "울진군 신림풍력발전사업",
-          "date": "2026-08-14",
-          "comp_date": "",
-          "status": "변경협의(진행)",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        },
-        {
-          "num": "GW20250167",
-          "title": "정선 도진풍력 발전사업",
-          "date": "2026-07-14",
-          "comp_date": "2026-07-15",
-          "status": "",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        }
-      ],
-      "total": 60
+      "error": "HTTPSConnectionPool(host='www.eiass.go.kr', port=443): Read timed out. (read timeout=30)",
+      "new_count": 0,
+      "new_items": [],
+      "total": 0
     },
     {
       "id": "kepco_notice",
