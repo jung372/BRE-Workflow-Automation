@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-29 20:00:03",
+  "checked_at": "2026-08-30 06:00:07",
   "sites": [
     {
       "id": "notice",
@@ -8,15 +8,8 @@
       "color": "#3b82f6",
       "url": "https://www.korec.go.kr/notice/selectNoticeList.do",
       "error": null,
-      "new_count": 1,
-      "new_items": [
-        {
-          "num": "공지",
-          "title": "삼척 평산풍력 발전사업 등 6개 발전사업 허가취소 처분 공고",
-          "date": "2026-08-25",
-          "url": "https://www.korec.go.kr/notice/selectNoticeList.do"
-        }
-      ],
+      "new_count": 0,
+      "new_items": [],
       "total": 15
     },
     {
@@ -37,7 +30,7 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 4,
+      "new_count": 2,
       "new_items": [
         {
           "num": "ME20260111",
@@ -45,22 +38,6 @@
           "date": "2026-08-28",
           "comp_date": "",
           "status": "변경협의(진행)",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        },
-        {
-          "num": "ME20260098",
-          "title": "울진군 신림풍력발전사업",
-          "date": "2026-08-14",
-          "comp_date": "",
-          "status": "변경협의(진행)",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        },
-        {
-          "num": "GW20250167",
-          "title": "정선 도진풍력 발전사업",
-          "date": "2026-07-14",
-          "comp_date": "2026-07-15",
-          "status": "",
           "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
         },
         {
@@ -103,7 +80,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 37,
+      "new_count": 36,
       "new_items": [
         {
           "uid": "DCTAA619E0E4633CF1AA3CDA602C74110C9",
@@ -190,18 +167,6 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         },
         {
-          "uid": "DCT4AA171D4570AA31053BB7D6775A541B6",
-          "title": "소규모 환경영향평가서 검토의견[경주 왕신풍력 발전소] 회신",
-          "dept": "기후국토환경연구과",
-          "dept_full": "기후에너지환경부 국립환경과학원 기후탄소연구부 기후국토환경연구과",
-          "instt": "기후에너지환경부",
-          "date": "2026-08-25",
-          "prod_date": "2026-08-24",
-          "doc_no": "기후국토환경연구과-4005",
-          "keyword": "왕신풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
-        },
-        {
           "uid": "DCTE35AAD9FBD7BA0DE8D995E6F74AEA841",
           "title": "인천 하늬바람1,2,3  해상풍력 발전사업 허가 심의 의견 회신(한국동서발전(주))",
           "dept": "해양수산환경과",
@@ -222,6 +187,18 @@
           "date": "2026-08-21",
           "prod_date": "2026-08-20",
           "doc_no": "해양공간관리처-1551",
+          "keyword": "한국바람",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
+        },
+        {
+          "uid": "JHOMS262323653882000",
+          "title": "한국동서발전㈜ 인천 하늬바람2 해상풍력 발전사업(발전단지 좌표 수정) 허가 심의 관련 의견 제출",
+          "dept": "해양환경공단",
+          "dept_full": "해양환경공단",
+          "instt": "해양환경공단",
+          "date": "2026-08-21",
+          "prod_date": "2026-08-20",
+          "doc_no": "해양공간관리처-1552",
           "keyword": "한국바람",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         }
