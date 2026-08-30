@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-30 20:00:04",
+  "checked_at": "2026-08-31 06:00:07",
   "sites": [
     {
       "id": "notice",
@@ -80,7 +80,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 36,
+      "new_count": 35,
       "new_items": [
         {
           "uid": "DCTAA619E0E4633CF1AA3CDA602C74110C9",
@@ -155,18 +155,6 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         },
         {
-          "uid": "DCT3C45E9B70E17E7453C474BA868F96C18",
-          "title": "출장복명서[허가신청-영덕해파랑육상풍력단지조성(한국바람 주식회사)]",
-          "dept": "종합민원처리과",
-          "dept_full": "경상북도 영덕군 종합민원처리과",
-          "instt": "경상북도 영덕군",
-          "date": "2026-08-26",
-          "prod_date": "2026-08-25",
-          "doc_no": "종합민원처리과-17780",
-          "keyword": "한국바람, 해파랑육상풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
-        },
-        {
           "uid": "DCTE35AAD9FBD7BA0DE8D995E6F74AEA841",
           "title": "인천 하늬바람1,2,3  해상풍력 발전사업 허가 심의 의견 회신(한국동서발전(주))",
           "dept": "해양수산환경과",
@@ -201,9 +189,21 @@
           "doc_no": "해양공간관리처-1552",
           "keyword": "한국바람",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
+        },
+        {
+          "uid": "DCT61347729A251F21B79C573480026923D",
+          "title": "인천 하늬바람 1, 2, 3 해상풍력 발전사업 허가 심의를 위한 의견 제출(한국동서발전(주))",
+          "dept": "대청면",
+          "dept_full": "인천광역시 옹진군 대청면",
+          "instt": "인천광역시 옹진군",
+          "date": "2026-08-21",
+          "prod_date": "2026-08-20",
+          "doc_no": "대청면-12606",
+          "keyword": "한국바람",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         }
       ],
-      "total": 73,
+      "total": 71,
       "keywords": [
         "시루풍력",
         "왕신풍력",
