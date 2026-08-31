@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-31 20:00:04",
+  "checked_at": "2026-09-01 06:00:05",
   "sites": [
     {
       "id": "notice",
@@ -87,7 +87,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 7,
+      "new_count": 5,
       "new_items": [
         {
           "uid": "DCTAA619E0E4633CF1AA3CDA602C74110C9",
@@ -126,30 +126,6 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
         },
         {
-          "uid": "JHOMS262310597501000",
-          "title": "경주 시루풍력 2호 발전사업 허가 문의에 대한 검토의견 회신",
-          "dept": "한국전력거래소",
-          "dept_full": "한국전력거래소",
-          "instt": "한국전력거래소",
-          "date": "2026-08-27",
-          "prod_date": "2026-08-19",
-          "doc_no": "계통계획팀-1280",
-          "keyword": "시루풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "JHOMS262310597512000",
-          "title": "경주 시루풍력 2호 발전사업허가 검토 결과",
-          "dept": "한국전력거래소",
-          "dept_full": "한국전력거래소",
-          "instt": "한국전력거래소",
-          "date": "2026-08-27",
-          "prod_date": "2026-08-19",
-          "doc_no": "계통계획팀-1281",
-          "keyword": "시루풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
-        },
-        {
           "uid": "DCTFB856880893B3EBF7561588B223F0072",
           "title": "개발행위(토지형질변경,공작물설치) 허가 통보(한국바람 주식회사 대표 배0호)",
           "dept": "종합민원처리과",
@@ -174,7 +150,7 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         }
       ],
-      "total": 43,
+      "total": 41,
       "keywords": [
         "시루풍력",
         "왕신풍력",
