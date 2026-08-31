@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-31 09:00:04",
+  "checked_at": "2026-08-31 10:00:06",
   "sites": [
     {
       "id": "notice",
@@ -87,7 +87,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 35,
+      "new_count": 7,
       "new_items": [
         {
           "uid": "DCTAA619E0E4633CF1AA3CDA602C74110C9",
@@ -162,55 +162,19 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         },
         {
-          "uid": "DCTE35AAD9FBD7BA0DE8D995E6F74AEA841",
-          "title": "인천 하늬바람1,2,3  해상풍력 발전사업 허가 심의 의견 회신(한국동서발전(주))",
-          "dept": "해양수산환경과",
-          "dept_full": "해양수산부 인천지방해양수산청 해양수산환경과",
-          "instt": "해양수산부",
-          "date": "2026-08-22",
-          "prod_date": "2026-08-21",
-          "doc_no": "해양수산환경과-6215",
-          "keyword": "한국바람",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
-        },
-        {
-          "uid": "JHOMS262323653888000",
-          "title": "한국동서발전㈜ 인천 하늬바람3 해상풍력 발전사업(발전단지 좌표 수정) 허가 심의 관련 의견 제출",
-          "dept": "해양환경공단",
-          "dept_full": "해양환경공단",
-          "instt": "해양환경공단",
-          "date": "2026-08-21",
-          "prod_date": "2026-08-20",
-          "doc_no": "해양공간관리처-1551",
-          "keyword": "한국바람",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
-        },
-        {
-          "uid": "JHOMS262323653882000",
-          "title": "한국동서발전㈜ 인천 하늬바람2 해상풍력 발전사업(발전단지 좌표 수정) 허가 심의 관련 의견 제출",
-          "dept": "해양환경공단",
-          "dept_full": "해양환경공단",
-          "instt": "해양환경공단",
-          "date": "2026-08-21",
-          "prod_date": "2026-08-20",
-          "doc_no": "해양공간관리처-1552",
-          "keyword": "한국바람",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
-        },
-        {
-          "uid": "DCT61347729A251F21B79C573480026923D",
-          "title": "인천 하늬바람 1, 2, 3 해상풍력 발전사업 허가 심의를 위한 의견 제출(한국동서발전(주))",
-          "dept": "대청면",
-          "dept_full": "인천광역시 옹진군 대청면",
-          "instt": "인천광역시 옹진군",
-          "date": "2026-08-21",
-          "prod_date": "2026-08-20",
-          "doc_no": "대청면-12606",
+          "uid": "DCT59F8F7AAD4683E2F8582B7568336B607",
+          "title": "개발행위허가 신청에 따른 관련부서 협의의견 회신(한국바람 주식회사)",
+          "dept": "환경위생과",
+          "dept_full": "경상북도 영덕군 환경위생과",
+          "instt": "경상북도 영덕군",
+          "date": "2026-08-04",
+          "prod_date": "2026-08-03",
+          "doc_no": "환경위생과-37106",
           "keyword": "한국바람",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         }
       ],
-      "total": 71,
+      "total": 43,
       "keywords": [
         "시루풍력",
         "왕신풍력",
