@@ -96556,6 +96556,12 @@
       ],
       "2026-08-31 08": [
         {
+          "id": "'26년 하반기 전국 2단계 재분배 시행 안내('26.8.31)||2026.08.31||||",
+          "title": "'26년 하반기 전국 2단계 재분배 시행 안내('26.8.31)",
+          "date": "2026.08.31",
+          "url": "https://online.kepco.co.kr/EWM040D00"
+        },
+        {
           "id": "'26년 상반기 전력계통 회수용량 재분배 일정 및 대상 안내('26. 6. 29.)||2026.06.29||||",
           "title": "'26년 상반기 전력계통 회수용량 재분배 일정 및 대상 안내('26. 6. 29.)",
           "date": "2026.06.29",
@@ -96607,12 +96613,6 @@
           "id": "'25년 하반기 전력계통 회수용량 재분배 및 유연접속 신청 안내('25.7.15)||2025.07.15||||",
           "title": "'25년 하반기 전력계통 회수용량 재분배 및 유연접속 신청 안내('25.7.15)",
           "date": "2025.07.15",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        },
-        {
-          "id": "'25년 상반기 잔여 용량 사업자 재분배 용량 안내('25. 5. 28.)||2025.05.28||||",
-          "title": "'25년 상반기 잔여 용량 사업자 재분배 용량 안내('25. 5. 28.)",
-          "date": "2025.05.28",
           "url": "https://online.kepco.co.kr/EWM040D00"
         }
       ],
@@ -168026,68 +168026,12 @@
           "keyword": "시루풍력"
         },
         {
-          "id": "DCTE35AAD9FBD7BA0DE8D995E6F74AEA841",
-          "title": "인천 하늬바람1,2,3  해상풍력 발전사업 허가 심의 의견 회신(한국동서발전(주))",
-          "date": "2026-08-22",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양수산환경과",
-          "keyword": "한국바람"
-        },
-        {
           "id": "DCTFFEFA49E7D06AB7EA25EE5D9E5A149B3",
           "title": "전기사업 허가 신청에 따른 의견 조회(경주시루풍력 2호) 회신",
           "date": "2026-08-21",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5",
           "dept": "산림경영과",
           "keyword": "시루풍력"
-        },
-        {
-          "id": "JHOMS262323653888000",
-          "title": "한국동서발전㈜ 인천 하늬바람3 해상풍력 발전사업(발전단지 좌표 수정) 허가 심의 관련 의견 제출",
-          "date": "2026-08-21",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양환경공단",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "JHOMS262323653882000",
-          "title": "한국동서발전㈜ 인천 하늬바람2 해상풍력 발전사업(발전단지 좌표 수정) 허가 심의 관련 의견 제출",
-          "date": "2026-08-21",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양환경공단",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT61347729A251F21B79C573480026923D",
-          "title": "인천 하늬바람 1, 2, 3 해상풍력 발전사업 허가 심의를 위한 의견 제출(한국동서발전(주))",
-          "date": "2026-08-21",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "대청면",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "00000000000002781741B553530",
-          "title": "한국동서발전(주)의 「인천 하늬바람3 해상풍력 발전사업」허가 심의를 위한 의견 회신 재송부",
-          "date": "2026-08-19",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "한국에너지공단",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "00000000000002781709B553530",
-          "title": "한국동서발전(주)의 「인천 하늬바람1 해상풍력 발전사업」허가 심의를 위한 의견 회신 재송부",
-          "date": "2026-08-19",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "한국에너지공단",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "00000000000002781731B553530",
-          "title": "한국동서발전(주)의 「인천 하늬바람2 해상풍력 발전사업」허가 심의를 위한 의견 회신 재송부",
-          "date": "2026-08-19",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "한국에너지공단",
-          "keyword": "한국바람"
         },
         {
           "id": "JHOMS262241777514000",
@@ -168114,100 +168058,12 @@
           "keyword": "해파랑육상풍력"
         },
         {
-          "id": "JHOMS262153187810000",
-          "title": "한국동서발전(주)의 「인천 하늬바람1~3」해상풍력 발전사업 허가 심의 관련 의견 조회에 대한 회신",
-          "date": "2026-08-07",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "인천국제공항공사",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT7E7F4B97CB6DE2D5AEA124692BAADF4B",
-          "title": "한국동서발전(주)의 인천 하늬바람 해상풍력 발전사업 관련 검토 의견",
-          "date": "2026-08-07",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "공역총괄과",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCTCB69E355FB4B85917D568CE37C0997C3",
-          "title": "[반송] 한국동서발전(주)의 「인천 하늬바람1~3」 해상풍력 발전사업 허가 심의 관련 의견 재문의",
-          "date": "2026-08-07",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "공항시설과",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "00000000000002772710B553530",
-          "title": "한국동서발전(주)의 「인천 하늬바람3 해상풍력 발전사업」허가 심의를 위한 의견 회신",
-          "date": "2026-08-06",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "한국에너지공단",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "00000000000002772664B553530",
-          "title": "한국동서발전(주)의 「인천 하늬바람1 해상풍력 발전사업」허가 심의를 위한 의견 회신",
-          "date": "2026-08-06",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "한국에너지공단",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCTC17613CDB5F4D2920FF573A6A71A4511",
-          "title": "한국동서발전(주)의 인천 하늬바람 해상풍력 발전사업 관련 검토 의견",
-          "date": "2026-08-06",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "공역총괄과",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT6362E842421A879C46BAE427840801D4",
-          "title": "한국동서발전(주) 인천 하늬바람2 해상풍력 발전사업 허가 심의 관련 의견 회신",
-          "date": "2026-08-06",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "어업정책과",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT21A2FADAAEA8697EF757EE036340DFB9",
-          "title": "한국동서발전(주) 인천 하늬바람3 해상풍력 발전사업 허가 심의 관련 의견 회신",
-          "date": "2026-08-06",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "어업정책과",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "00000000000002772691B553530",
-          "title": "한국동서발전(주)의 「인천 하늬바람2 해상풍력 발전사업」허가 심의를 위한 의견 회신",
-          "date": "2026-08-06",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "한국에너지공단",
-          "keyword": "한국바람"
-        },
-        {
           "id": "00000000000002773378B553530",
           "title": "경주 시루풍력 2호 발전사업 허가 심의를 위한 의견 문의 회신",
           "date": "2026-08-05",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5",
           "dept": "한국에너지공단",
           "keyword": "시루풍력"
-        },
-        {
-          "id": "JHOMS262160305756000",
-          "title": "한국의 소도시 홍보를 위한 관광지 촬영협조 요청(오동도 바람골)",
-          "date": "2026-08-05",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "한국관광공사",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCTBC164F2FDCB9FE27528338F7EA912E7B",
-          "title": "인천 하늬바람 1, 2, 3 해상풍력 발전사업 허가 심의를 위한 의견 제출 요청(한국동서발전(주))",
-          "date": "2026-08-05",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "경제정책과",
-          "keyword": "한국바람"
         },
         {
           "id": "DCT0935683E6BE663594B7EAA616DE001B5",
@@ -168242,35 +168098,11 @@
           "keyword": "시루풍력"
         },
         {
-          "id": "REC284356187877018007309",
-          "title": "한국동서발전(주)의 「인천 하늬바람1~3」 해상풍력 발전사업 허가 심의 관련 검토의견 회신",
-          "date": "2026-08-04",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "한국공항공사",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT79FF76AB368CF58C5B52BF5BC0987FB4",
-          "title": "한국동서발전㈜ 인천 하늬바람3 해상풍력 발전사업 허가 심의 관련 의견 재조회(발전단지 좌표 수정)",
-          "date": "2026-08-04",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양공간정책과",
-          "keyword": "한국바람"
-        },
-        {
           "id": "DCT59F8F7AAD4683E2F8582B7568336B607",
           "title": "개발행위허가 신청에 따른 관련부서 협의의견 회신(한국바람 주식회사)",
           "date": "2026-08-04",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
           "dept": "환경위생과",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT72D0BA4837B765A5AEB30D43BF7F1DCC",
-          "title": "한국동서발전㈜ 인천 하늬바람2 해상풍력 발전사업 허가 심의 관련 의견 재조회(발전단지 좌표 수정)",
-          "date": "2026-08-04",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양공간정책과",
           "keyword": "한국바람"
         },
         {
@@ -168280,30 +168112,6 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5",
           "dept": "건설과",
           "keyword": "시루풍력"
-        },
-        {
-          "id": "JHOMS262113625916000",
-          "title": "한국동서발전㈜ 인천 하늬바람2 해상풍력 발전사업 허가 심의 관련 의견 제출",
-          "date": "2026-07-31",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양환경공단",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "JHOMS262113625906000",
-          "title": "한국동서발전㈜ 인천 하늬바람3 해상풍력 발전사업 허가 심의 관련 의견 제출",
-          "date": "2026-07-31",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양환경공단",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT0FFDD6A2831935F1FA55A3C476AF3C7E",
-          "title": "인천 하늬바람 1, 2, 3 해상풍력 발전사업  허가 심의를 위한 의견 제출 (한국동서발전(주))",
-          "date": "2026-07-31",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "대청면",
-          "keyword": "한국바람"
         },
         {
           "id": "DCT9A8E7C575C0B319174E52C30E0E3B672",
@@ -168346,14 +168154,6 @@
           "keyword": "시루풍력"
         },
         {
-          "id": "DCT54D1B41179F6B345BE3293CF95B6A091",
-          "title": "[이송] 한국동서발전(주)의 「인천 하늬바람1~3」 해상풍력 발전사업 허가 심의 관련 의견 조회",
-          "date": "2026-07-22",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "공항시설과",
-          "keyword": "한국바람"
-        },
-        {
           "id": "DCTA5E5C5A4189360CB12FA3B4957733D5A",
           "title": "전기사업 허가 신청에 따른 의견 조회(경주시루풍력 2호)",
           "date": "2026-07-21",
@@ -168376,30 +168176,6 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5",
           "dept": "한국에너지공단",
           "keyword": "왕신풍력"
-        },
-        {
-          "id": "DCTCCB3BDC2A64D6A868C408A3AFD12A884",
-          "title": "한국동서발전㈜ 인천 하늬바람3 해상풍력 발전사업 허가 심의 관련 의견 조회",
-          "date": "2026-07-17",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양공간정책과",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT0B1F700D27C26FC5B01EDA2DB1A4A65B",
-          "title": "한국동서발전㈜ 인천 하늬바람2 해상풍력 발전사업 허가 심의 관련 의견 조회",
-          "date": "2026-07-17",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "해양공간정책과",
-          "keyword": "한국바람"
-        },
-        {
-          "id": "DCT2AF9F07F5CBFF72914F85C7CC0FD79D8",
-          "title": "인천 하늬바람 1, 2, 3 해상풍력 발전사업  허가 심의를 위한 의견 제출 요청(한국동서발전(주))",
-          "date": "2026-07-17",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C",
-          "dept": "경제정책과",
-          "keyword": "한국바람"
         },
         {
           "id": "2500314080411",
