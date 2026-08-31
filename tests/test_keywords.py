@@ -26,6 +26,28 @@ class ValidateTest(unittest.TestCase):
     def test_defaults_are_allowed_to_be_absent(self):
         self.assertEqual(kw_mod.validate({"keywords": ["시루풍력"]}), [])
 
+    def test_accepts_exact_title_keyword_from_keywords(self):
+        raw = {
+            "keywords": ["시루풍력", "한국바람"],
+            "exact_title_keywords": ["한국바람"],
+        }
+        self.assertEqual(kw_mod.validate(raw), [])
+
+    def test_rejects_exact_title_keyword_not_in_keywords(self):
+        raw = {
+            "keywords": ["시루풍력"],
+            "exact_title_keywords": ["한국바람"],
+        }
+        errors = kw_mod.validate(raw)
+        self.assertTrue(any("keywords 에 없습니다" in e for e in errors))
+
+    def test_rejects_invalid_exact_title_keywords_type(self):
+        raw = {
+            "keywords": ["시루풍력"],
+            "exact_title_keywords": "시루풍력",
+        }
+        self.assertTrue(kw_mod.validate(raw))
+
     def test_rejects_non_object(self):
         self.assertTrue(kw_mod.validate(["시루풍력"]))
 
@@ -91,9 +113,24 @@ class LoadTest(unittest.TestCase):
             cfg = kw_mod.load_keywords(p)
 
             self.assertEqual(cfg.keywords, ("시루풍력", "왕신풍력"))
+            self.assertEqual(cfg.exact_title_keywords, ())
             self.assertEqual(cfg.window_days, 90)
             self.assertEqual(cfg.warnings, ())
             self.assertEqual(cfg.source, str(p))
+
+    def test_loads_exact_title_keywords(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "keywords.json"
+            write(
+                p,
+                {
+                    "keywords": ["시루풍력", "한국바람"],
+                    "exact_title_keywords": ["한국바람"],
+                },
+            )
+            cfg = kw_mod.load_keywords(p)
+
+            self.assertEqual(cfg.exact_title_keywords, ("한국바람",))
 
     def test_strips_whitespace(self):
         with tempfile.TemporaryDirectory() as d:

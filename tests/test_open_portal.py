@@ -1,3 +1,4 @@
+import unicodedata
 import unittest
 
 from tests import context  # noqa: F401
@@ -5,8 +6,10 @@ from tests import context  # noqa: F401
 from scrapers.open_portal import (
     dedupe,
     extract_dept,
+    filter_rows_for_keyword,
     normalize,
     search_url,
+    title_contains_exact_keyword,
     to_iso_date,
 )
 
@@ -106,6 +109,39 @@ class SearchUrlTest(unittest.TestCase):
         url = search_url("시루풍력")
         self.assertNotIn("시루풍력", url)
         self.assertIn("%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5", url)
+
+
+class ExactTitleKeywordTest(unittest.TestCase):
+    def test_accepts_contiguous_keyword(self):
+        record = {"INFO_SJ": "개발행위 허가 통보(한국바람 주식회사)"}
+        self.assertTrue(title_contains_exact_keyword(record, "한국바람"))
+
+    def test_rejects_tokens_in_different_words(self):
+        record = {"INFO_SJ": "한국동서발전 인천 하늬바람 해상풍력"}
+        self.assertFalse(title_contains_exact_keyword(record, "한국바람"))
+
+    def test_rejects_whitespace_between_words(self):
+        record = {"INFO_SJ": "한국 바람 발전사업"}
+        self.assertFalse(title_contains_exact_keyword(record, "한국바람"))
+
+    def test_normalizes_unicode_without_removing_spacing(self):
+        decomposed = unicodedata.normalize("NFD", "한국바람")
+        record = {"INFO_SJ": f"{decomposed} 발전사업"}
+        self.assertTrue(title_contains_exact_keyword(record, "한국바람"))
+
+    def test_blank_title_does_not_match(self):
+        self.assertFalse(title_contains_exact_keyword({}, "한국바람"))
+
+    def test_filters_only_keywords_configured_for_exact_title_matching(self):
+        rows = [
+            {"INFO_SJ": "한국바람 주식회사"},
+            {"INFO_SJ": "한국동서발전 인천 하늬바람 해상풍력"},
+        ]
+        self.assertEqual(
+            filter_rows_for_keyword(rows, "한국바람", ("한국바람",)),
+            rows[:1],
+        )
+        self.assertIs(filter_rows_for_keyword(rows, "한국바람", ()), rows)
 
 
 class DedupeTest(unittest.TestCase):

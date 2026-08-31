@@ -12,6 +12,7 @@ request 로 API 를 호출한다.
 
 import json
 import logging
+import unicodedata
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 
@@ -38,6 +39,25 @@ log = logging.getLogger(__name__)
 
 def search_url(keyword: str) -> str:
     return f"{SEARCH_PAGE}?kwd={quote(keyword)}"
+
+
+def title_contains_exact_keyword(record: dict, keyword: str) -> bool:
+    """제목에 검색어가 공백·구두점 없이 연속해서 존재하는지 판정한다.
+
+    정보공개포털은 '한국바람'을 '한국' AND '바람'으로 분리해 반환한다.
+    한글 표현은 그대로 비교하되, 조합형 차이만 흡수하도록 NFC 정규화한다.
+    공백이나 구두점은 제거하지 않으므로 '한국 바람'은 일치하지 않는다.
+    """
+    title = unicodedata.normalize("NFC", str(record.get("INFO_SJ") or ""))
+    exact_keyword = unicodedata.normalize("NFC", keyword)
+    return bool(exact_keyword) and exact_keyword in title
+
+
+def filter_rows_for_keyword(rows: list, keyword: str, exact_keywords: tuple) -> list:
+    """완전일치 대상으로 지정된 검색어에만 제목 후처리를 적용한다."""
+    if keyword not in exact_keywords:
+        return rows
+    return [r for r in rows if title_contains_exact_keyword(r, keyword)]
 
 
 def extract_dept(record: dict) -> str:
@@ -207,8 +227,19 @@ def fetch_open_portal(site: dict, p_instance) -> tuple:
                     "광범위할 수 있습니다. 사업 전체명을 쓰세요."
                 )
 
+            api_row_count = len(rows)
+            if keyword in cfg.exact_title_keywords:
+                rows = filter_rows_for_keyword(
+                    rows, keyword, cfg.exact_title_keywords
+                )
+                log.info(
+                    f"[{site['name']}] '{keyword}' API {api_row_count}건 중 "
+                    f"제목 연속일치 {len(rows)}건 (전체 {total})"
+                )
+            else:
+                log.info(f"[{site['name']}] '{keyword}' {api_row_count}건 (전체 {total})")
+
             collected.extend(normalize(r, keyword) for r in rows)
-            log.info(f"[{site['name']}] '{keyword}' {len(rows)}건 (전체 {total})")
 
         if failed and len(failed) == len(cfg.keywords):
             return None, f"모든 키워드 조회 실패: {', '.join(failed)}"

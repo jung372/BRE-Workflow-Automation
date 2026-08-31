@@ -34,6 +34,7 @@ ROW_PAGE_RANGE = (10, 200)
 @dataclass(frozen=True)
 class KeywordConfig:
     keywords: tuple = DEFAULT_KEYWORDS
+    exact_title_keywords: tuple = ()
     window_days: int = DEFAULT_WINDOW_DAYS
     row_page: int = DEFAULT_ROW_PAGE
     source: str = "default"
@@ -48,6 +49,7 @@ def validate(raw: dict) -> list:
         return ["최상위 구조가 객체(JSON object)가 아닙니다."]
 
     kws = raw.get("keywords")
+    normalized_keywords = set()
     if not isinstance(kws, list):
         errors.append("keywords 가 배열이 아닙니다.")
     elif not kws:
@@ -72,6 +74,28 @@ def validate(raw: dict) -> list:
                 errors.append(f"keywords[{i}] '{stripped}' 가 중복입니다.")
             else:
                 seen.add(stripped)
+                normalized_keywords.add(stripped)
+
+    exact_kws = raw.get("exact_title_keywords", [])
+    if not isinstance(exact_kws, list):
+        errors.append("exact_title_keywords 가 배열이 아닙니다.")
+    else:
+        seen_exact = set()
+        for i, kw in enumerate(exact_kws):
+            if not isinstance(kw, str):
+                errors.append(f"exact_title_keywords[{i}] 가 문자열이 아닙니다: {kw!r}")
+                continue
+            stripped = kw.strip()
+            if not stripped:
+                errors.append(f"exact_title_keywords[{i}] 가 빈 문자열입니다.")
+            elif stripped in seen_exact:
+                errors.append(f"exact_title_keywords[{i}] '{stripped}' 가 중복입니다.")
+            elif stripped not in normalized_keywords:
+                errors.append(
+                    f"exact_title_keywords[{i}] '{stripped}' 가 keywords 에 없습니다."
+                )
+            else:
+                seen_exact.add(stripped)
 
     for name, default, (low, high) in (
         ("window_days", DEFAULT_WINDOW_DAYS, WINDOW_DAYS_RANGE),
@@ -89,6 +113,9 @@ def validate(raw: dict) -> list:
 def _from_raw(raw: dict, source: str, warnings: list) -> KeywordConfig:
     return KeywordConfig(
         keywords=tuple(k.strip() for k in raw["keywords"]),
+        exact_title_keywords=tuple(
+            k.strip() for k in raw.get("exact_title_keywords", [])
+        ),
         window_days=int(raw.get("window_days", DEFAULT_WINDOW_DAYS)),
         row_page=int(raw.get("row_page", DEFAULT_ROW_PAGE)),
         source=source,
@@ -161,6 +188,8 @@ def main(argv: list = None) -> int:
     cfg = load_keywords(target)
     print(f"[OK] 키워드 설정 검증 통과: {target}")
     print(f"  키워드 {len(cfg.keywords)}개: {', '.join(cfg.keywords)}")
+    if cfg.exact_title_keywords:
+        print(f"  제목 연속일치: {', '.join(cfg.exact_title_keywords)}")
     print(f"  조회 기간 {cfg.window_days}일 / 페이지 크기 {cfg.row_page}")
     return 0
 

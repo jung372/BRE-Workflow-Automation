@@ -10,6 +10,9 @@
     "한국바람",
     "해파랑육상풍력"
   ],
+  "exact_title_keywords": [
+    "한국바람"
+  ],
   "window_days": 90,
   "row_page": 100
 }

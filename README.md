@@ -165,7 +165,8 @@ gh workflow run ci-deploy.yml --ref main
 
 ```json
 {
-  "keywords": ["시루풍력", "왕신풍력", "해파랑육상풍력"],
+  "keywords": ["시루풍력", "왕신풍력", "한국바람", "해파랑육상풍력"],
+  "exact_title_keywords": ["한국바람"],
   "window_days": 90,
   "row_page": 100
 }
@@ -173,6 +174,9 @@ gh workflow run ci-deploy.yml --ref main
 
 - **반영 시점: 다음 정시 실행(최대 1시간).** 재배포가 필요 없습니다. 서버의
   `publish` clone 이 스크래핑 직전에 `git pull` 하므로 자동으로 도달합니다.
+- 포털의 단어 분리 검색을 제외하고 제목에 검색어가 공백 없이 연속으로 들어간
+  건만 받으려면, 해당 검색어를 `exact_title_keywords`에도 넣습니다. 이 값은
+  반드시 `keywords`에 먼저 등록되어 있어야 합니다.
 - 커밋할 수 있는 사람은 저장소 write 권한 보유자뿐입니다. 권한이 없는 사용자가
   웹 편집기로 고치면 GitHub 이 자동으로 fork + PR 로 돌립니다.
 - 저장 시 `키워드 설정 검증` 워크플로가 20초 내에 형식을 확인합니다. 실패하면
