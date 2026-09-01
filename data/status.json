@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-01 20:00:04",
+  "checked_at": "2026-09-02 06:00:06",
   "sites": [
     {
       "id": "notice",
@@ -30,7 +30,7 @@
       "color": "#0ea5e9",
       "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M",
       "error": null,
-      "new_count": 2,
+      "new_count": 1,
       "new_items": [
         {
           "num": "JN20260032",
@@ -38,14 +38,6 @@
           "date": "2026-08-27",
           "comp_date": "",
           "status": "본협의(진행)",
-          "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
-        },
-        {
-          "num": "ME20260111",
-          "title": "삼척 노곡풍력 발전사업",
-          "date": "2026-08-28",
-          "comp_date": "",
-          "status": "변경협의(진행)",
           "url": "https://www.eiass.go.kr/biz/base/info/perList.do?menu=biz&biz_gubn=M"
         }
       ],
@@ -87,69 +79,8 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 5,
-      "new_items": [
-        {
-          "uid": "DCTAA619E0E4633CF1AA3CDA602C74110C9",
-          "title": "개발행위허가신청에 따른 보완사항 통지(강동면 왕신리 산217번지 외 9필지 일원, 경주왕신풍력발전소)",
-          "dept": "지역개발과",
-          "dept_full": "경상북도 경주시 안강읍 지역개발과",
-          "instt": "경상북도 경주시",
-          "date": "2026-08-28",
-          "prod_date": "2026-08-27",
-          "doc_no": "지역개발과-10968",
-          "keyword": "왕신풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCT5D7199411650029BB1D64159269FC4AD",
-          "title": "영덕 해파랑육상풍력 송전선로 설치공사 관련 의견조회",
-          "dept": "건설과",
-          "dept_full": "경상북도 울진군 안전건설국 건설과",
-          "instt": "경상북도 울진군",
-          "date": "2026-08-28",
-          "prod_date": "2026-08-27",
-          "doc_no": "건설과-29273",
-          "keyword": "해파랑육상풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCTF4F38CFDB97D31D29DD6C8C383B7DAFC",
-          "title": "영덕 해파랑육상풍력 송전선로 설치 공사에 대한 의견서 제출",
-          "dept": "후포면",
-          "dept_full": "경상북도 울진군 후포면",
-          "instt": "경상북도 울진군",
-          "date": "2026-08-28",
-          "prod_date": "2026-08-27",
-          "doc_no": "후포면-10236",
-          "keyword": "해파랑육상풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%B4%ED%8C%8C%EB%9E%91%EC%9C%A1%EC%83%81%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCTFB856880893B3EBF7561588B223F0072",
-          "title": "개발행위(토지형질변경,공작물설치) 허가 통보(한국바람 주식회사 대표 배0호)",
-          "dept": "종합민원처리과",
-          "dept_full": "경상북도 영덕군 종합민원처리과",
-          "instt": "경상북도 영덕군",
-          "date": "2026-08-26",
-          "prod_date": "2026-08-25",
-          "doc_no": "종합민원처리과-17850",
-          "keyword": "한국바람",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
-        },
-        {
-          "uid": "DCT59F8F7AAD4683E2F8582B7568336B607",
-          "title": "개발행위허가 신청에 따른 관련부서 협의의견 회신(한국바람 주식회사)",
-          "dept": "환경위생과",
-          "dept_full": "경상북도 영덕군 환경위생과",
-          "instt": "경상북도 영덕군",
-          "date": "2026-08-04",
-          "prod_date": "2026-08-03",
-          "doc_no": "환경위생과-37106",
-          "keyword": "한국바람",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
-        }
-      ],
+      "new_count": 0,
+      "new_items": [],
       "total": 41,
       "keywords": [
         "시루풍력",
