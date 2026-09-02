@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-03 07:00:07",
+  "checked_at": "2026-09-03 08:00:05",
   "sites": [
     {
       "id": "notice",
@@ -114,18 +114,6 @@
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
         },
         {
-          "uid": "DCT9AFA5D6A51502D28B65D51895DFC2B0F",
-          "title": "전기사업변경허가 신청에 따른 의견회신(경주왕신풍력)",
-          "dept": "문화유산과",
-          "dept_full": "경상북도 경주시 문화관광국 문화유산과",
-          "instt": "경상북도 경주시",
-          "date": "2026-09-03",
-          "prod_date": "2026-06-12",
-          "doc_no": "문화유산과-8468",
-          "keyword": "왕신풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
-        },
-        {
           "uid": "DCT8D2E9EE1325900DB436C03B9D2B5643E",
           "title": "소규모환경영향평가 협의 내용 알림(경주 왕신풍력 발전사업)",
           "dept": "환경영향평가과",
@@ -134,6 +122,18 @@
           "date": "2026-09-03",
           "prod_date": "2026-09-02",
           "doc_no": "환경영향평가과-2921",
+          "keyword": "왕신풍력",
+          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
+        },
+        {
+          "uid": "DCT9AFA5D6A51502D28B65D51895DFC2B0F",
+          "title": "전기사업변경허가 신청에 따른 의견회신(경주왕신풍력)",
+          "dept": "문화유산과",
+          "dept_full": "경상북도 경주시 문화관광국 문화유산과",
+          "instt": "경상북도 경주시",
+          "date": "2026-09-03",
+          "prod_date": "2026-06-12",
+          "doc_no": "문화유산과-8468",
           "keyword": "왕신풍력",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
         },
