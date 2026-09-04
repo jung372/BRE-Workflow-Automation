@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-04 20:00:08",
+  "checked_at": "2026-09-05 06:00:06",
   "sites": [
     {
       "id": "notice",
@@ -58,15 +58,8 @@
       "color": "#f97316",
       "url": "https://online.kepco.co.kr/EWM040D00",
       "error": null,
-      "new_count": 1,
-      "new_items": [
-        {
-          "num": "-",
-          "title": "'26년 하반기 전국 2단계 재분배 시행 안내('26.8.31)",
-          "date": "2026.08.31",
-          "url": "https://online.kepco.co.kr/EWM040D00"
-        }
-      ],
+      "new_count": 0,
+      "new_items": [],
       "total": 10
     },
     {
