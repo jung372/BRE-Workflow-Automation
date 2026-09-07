@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07 20:00:05",
+  "checked_at": "2026-09-08 06:00:06",
   "sites": [
     {
       "id": "notice",
@@ -63,7 +63,7 @@
       "color": "#a855f7",
       "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do",
       "error": null,
-      "new_count": 6,
+      "new_count": 1,
       "new_items": [
         {
           "uid": "DCTB57BB4D10F9FA4A133DB444FDEA06F9B",
@@ -76,69 +76,9 @@
           "doc_no": "지역개발과-11276",
           "keyword": "왕신풍력",
           "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCT21246DFFBE94A5A89F68272025FA797D",
-          "title": "전기사업 허가 신청에 따른 의견(경주시루풍력 2호) 제출",
-          "dept": "보덕동",
-          "dept_full": "경상북도 경주시 보덕동",
-          "instt": "경상북도 경주시",
-          "date": "2026-09-03",
-          "prod_date": "2026-09-02",
-          "doc_no": "보덕동-10675",
-          "keyword": "시루풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCT81ED35FA140A413D91E8D9EB916824D1",
-          "title": "전기사업 허가 신청에 따른 의견 조회(경주시루풍력 2호)결과 제출",
-          "dept": "천북면",
-          "dept_full": "경상북도 경주시 천북면",
-          "instt": "경상북도 경주시",
-          "date": "2026-09-03",
-          "prod_date": "2026-09-02",
-          "doc_no": "천북면-12636",
-          "keyword": "시루풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%8B%9C%EB%A3%A8%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCT8D2E9EE1325900DB436C03B9D2B5643E",
-          "title": "소규모환경영향평가 협의 내용 알림(경주 왕신풍력 발전사업)",
-          "dept": "환경영향평가과",
-          "dept_full": "기후에너지환경부 자연보전국 환경영향평가과",
-          "instt": "기후에너지환경부",
-          "date": "2026-09-03",
-          "prod_date": "2026-09-02",
-          "doc_no": "환경영향평가과-2921",
-          "keyword": "왕신풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCT9AFA5D6A51502D28B65D51895DFC2B0F",
-          "title": "전기사업변경허가 신청에 따른 의견회신(경주왕신풍력)",
-          "dept": "문화유산과",
-          "dept_full": "경상북도 경주시 문화관광국 문화유산과",
-          "instt": "경상북도 경주시",
-          "date": "2026-09-03",
-          "prod_date": "2026-06-12",
-          "doc_no": "문화유산과-8468",
-          "keyword": "왕신풍력",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%EC%99%95%EC%8B%A0%ED%92%8D%EB%A0%A5"
-        },
-        {
-          "uid": "DCT65ABEC1AD8C208E86E801DACCBCAE29E",
-          "title": "개발행위(토지형질변경,공작물설치) 변경 허가 통보(한국바람 주식회사 대표 금0섭)",
-          "dept": "종합민원처리과",
-          "dept_full": "경상북도 영덕군 종합민원처리과",
-          "instt": "경상북도 영덕군",
-          "date": "2026-09-03",
-          "prod_date": "2026-09-02",
-          "doc_no": "종합민원처리과-18437",
-          "keyword": "한국바람",
-          "url": "https://www.open.go.kr/com/search/uniSrhMoreList.do?kwd=%ED%95%9C%EA%B5%AD%EB%B0%94%EB%9E%8C"
         }
       ],
-      "total": 45,
+      "total": 42,
       "keywords": [
         "시루풍력",
         "왕신풍력",
